@@ -1,58 +1,43 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-const options = [{
-  value: 'zhejiang',
-  label: 'Zhejiang',
-  children: [{
-    value: 'hangzhou',
-    label: 'Hangzhou',
-    children: [{
-      value: 'xihu',
-      label: 'West Lake',
-      isLeaf: true
-    }]
-  }, {
-    value: 'ningbo',
-    label: 'Ningbo',
-    isLeaf: true
-  }]
-}, {
-  value: 'jiangsu',
-  label: 'Jiangsu',
-  children: [{
-    value: 'nanjing',
-    label: 'Nanjing',
-    children: [{
-      value: 'zhonghuamen',
-      label: 'Zhong Hua Men',
-      isLeaf: true
-    }]
-  }]
-}];
+import { Component, OnInit } from "@angular/core";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { ShopService } from "./../../lib/service/shop.service";
 
 @Component({
-  selector: 'app-signup-page',
-  templateUrl: './signup-page.component.html',
-  styleUrls: ['./signup-page.component.css']
+  selector: "app-signup-page",
+  templateUrl: "./signup-page.component.html",
+  styleUrls: ["./signup-page.component.css"]
 })
 export class SignupPageComponent implements OnInit {
+  authcode: "";
+  values:any[]=[]
 
-  // constructor() { }
+  loopTime = 0;
+  newShop: IShop = {
+    telphone: "",
+    boss_name: "",
+    shop_name: "",
+    phone: "",
+    password: "",
+    region: "",
+    city: "",
+    addr: "",
+    qq: ""
+  };
+  options: CascaderOption[] = [];
 
   ngOnInit() {
+    this.changeNzOptions();
   }
-  nzOptions = options;
 
   public form: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, public shop: ShopService) {
     this.createForm();
   }
 
   private createForm(): void {
     this.form = this.fb.group({
-      name: [null, Validators.required ]
+      name: [null, Validators.required]
     });
   }
 
@@ -68,59 +53,42 @@ export class SignupPageComponent implements OnInit {
   public onChanges(values: any): void {
     console.log(values);
   }
+  signup() {
+    this.shop.signup(this.newShop, this.authcode);
+  }
+  sendAuthcode() {
+    if (/^1[3-9]\d{9}$/.test(this.newShop.phone)) {
+      console.log(this.newShop.phone);
+      this.loopTime = 60;
+      let timer = setInterval(() => {
+        if (this.loopTime > 0) {
+          this.loopTime--;
+        } else {
+          clearInterval(timer);
+        }
+      }, 1000);
+      // this.shop.sendAuthcode(this.newShop.phone)
+    } else {
+      this.shop.http.createMessage("warning", "手机号不合法");
+    }
+  }
+  async changeNzOptions() {
+    let regions = await this.shop.getCityJSON();
+    this.options = regions.map(region => {
+      let cityChildren = region.city.map(city => {
+        let areaChildren = city.area.map(area => {
+          return {
+            label: area,
+            value: area,
+            isLeaf: true
+          };
+        });
+        return { value: city.name, label: city.name, children: areaChildren };
+      });
+      return { label: region.name, value: region.name, children: cityChildren };
+    });
+    console.log(this.options);
 
+
+  }
 }
-
-
-
-// @Component({
-//   selector: 'nz-demo-cascader-reactive-form',
-//   template: `
-//     <form [formGroup]="form" novalidate>
-//       <nz-cascader
-//         [nzOptions]="nzOptions"
-//         (nzChange)="onChanges($event)"
-//         [formControlName]="'name'">
-//       </nz-cascader>
-//     </form>
-//     <br>
-//     <button nz-button (click)="reset()">Reset</button>
-//     <button nz-button (click)="submit()">Submit</button>
-//     `,
-//   styles  : [
-//     `
-//     .ant-cascader-picker {
-//       width: 300px;
-//     }
-//     `
-//   ]
-// })
-// export class class SignupPageComponent implements OnInit  {
-//   /** init data */
-//   nzOptions = options;
-
-//   public form: FormGroup;
-
-//   constructor(private fb: FormBuilder) {
-//     this.createForm();
-//   }
-
-//   private createForm(): void {
-//     this.form = this.fb.group({
-//       name: [null, Validators.required ]
-//     });
-//   }
-
-//   public reset(): void {
-//     this.form.reset();
-//     console.log(this.form.value);
-//   }
-
-//   public submit(): void {
-//     console.log(this.form.value);
-//   }
-
-//   public onChanges(values: any): void {
-//     console.log(values);
-//   }
-// }

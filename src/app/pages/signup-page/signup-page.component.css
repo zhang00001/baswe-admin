@@ -1,16 +1,27 @@
 .main {
-    display: flex;
+  display: flex;
 }
 
 .msg-container {
-    width: 200px;
-    flex-shrink: 0;
+  width: 200px;
+  flex-shrink: 0;
 }
 
 .signup-container {
-    width: 100%;
-
+  width: 100%;
 }
-.desc{
+
+.desc {
   margin: 30px;
 }
+
+.ant-cascader-picker {
+  width: 300px;
+}
+
+.change-options {
+  display: inline-block;
+  font-size: 12px;
+  margin-top: 8px;
+}
+

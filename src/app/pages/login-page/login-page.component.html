@@ -5,7 +5,7 @@
       <div class="header ">
         <!-- <img src="https://preview.pro.ant.design/static/logo.b29324c4.svg" alt="" class="logo"> -->
       </div>
-      <div class="desc">邦为软件平台</div>
+      <div class="desc">邦为操作系统</div>
     </div>
     <div class="login-form">
       <div>
@@ -34,24 +34,14 @@
       </div>
 
       <div>
-        <nz-form-item *ngIf="!isElectron">
-          <nz-form-label [nzSpan]="5" nzRequired nzFor="note">服务</nz-form-label>
-          <nz-form-control [nzSpan]="12">
-            <nz-select style="width: 200px;" nzShowSearch nzAllowClear nzPlaceHolder="选择服务" [(ngModel)]="selectedLoginOption">
-              <nz-option [nzLabel]="option.label" [nzValue]="option" *ngFor="let option of loginOptions"></nz-option>
 
-            </nz-select>
-          </nz-form-control>
-        </nz-form-item>
 
       </div>
       <div style="display: FLEX;
             justify-content: space-around;
             margin: 20px;">
 
-        <label nz-checkbox>
-          <span>七天自动登录</span>
-        </label>
+
 
         <a class="login-form-forgot" routerLink="/admin/forgot-password" class="login-form-forgot">忘记密码</a>
         <a routerLink="/admin/signup">注册</a>

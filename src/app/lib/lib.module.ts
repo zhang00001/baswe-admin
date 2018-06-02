@@ -4,7 +4,7 @@ import { NgModule, ModuleWithProviders } from "@angular/core";
 import { RouterModule } from "@angular/router";
 import { HttpModule, JsonpModule } from "@angular/http";
 import { FormsModule } from "@angular/forms";
-import { CommonService, ConfigService, PcClientService } from "./service";
+import { CommonService, ConfigService, PcClientService, ShopService } from "./service";
 // import { MoneyPipe, ArrTruePipe } from './pipe';
 import { BackDirective, BgImgDirective } from "./directive";
 import { TitleComponent } from "./com/title/title.component";
@@ -68,7 +68,8 @@ import { ElectronService } from './service/electron.service';
     EditormdService,
     StorageService,
     M2Service,
-    ElectronService
+    ElectronService,
+    ShopService
   ]
 })
 export class LibModule {
@@ -89,7 +90,7 @@ export class LibModule {
         EditormdService,
         StorageService,
         M2Service,
-        ElectronService
+        ElectronService,  ShopService
 
       ]
     };

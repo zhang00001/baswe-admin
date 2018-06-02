@@ -31,36 +31,80 @@ interface IArticles {
  * 商户数据结构
  */
 
-  interface IShop {
-    shop_id?: number;
-    shop_name?: string;
-    telphone?: string;
-    password?: string;
-    province?: string;
-    city?: string;
-    addr?: string;
-    referrer?: string;
-    servicer?: string;
-    regist_time?: Date;
-    active_status?: string;
-    active_time?: Date;
-    legal_person_name?: string;
-    legal_person_mobi?: string;
-    boss_name?: string;
-    boss_mobi?: string;
-    manager_name?: string;
-    manager_mobi?: string;
-    area_size?: number;
-    rooms?: number;
-    skillers?: number;
-    branches?: number;
-    franchies?: number;
-    pictures?: string;
-    introduction?: string;
-    open_date?: Date;
-    lat_lng?: string;
-    update_time?: Date;
-  }
+interface IShop {
+  shop_id?: number;
+  shop_name: string;
+  telphone: string;
+  qq?: string;
+  phone: string;
+  password: string;
+  /**
+   * 省份
+   */
+  region: string;
+  /**
+   * 市
+   */
+  city: string;
+  /**
+   * 区
+   */
+  addr: string;
+  /**
+   * 座机
+   */
+
+  /**
+   * 推荐人id
+   */
+  referrer?: string;
+  /**服务人ID */
+  servicer?: string;
+  /**是否激活 激活就是安装 */
+  active_status?: string;
+  active_time?: Date;
+  /**
+   * 法人姓名
+   */
+  legal_person_name?: string;
+  /**
+   * 法人手机号
+   */
+  legal_person_mobi?: string;
+  boss_name?: string;
+  boss_mobi?: string;
+  /**
+   * 店长名字
+   */
+  manager_name?: string;
+  /**
+   * 店长手机
+   */
+  manager_mobi?: string;
+  area_size?: number;
+  rooms?: number;
+  /**
+   * 技师数
+   */
+  skillers?: number;
+  /**
+   * 分店数
+   */
+  branches?: number;
+  /**
+   * 加盟店数
+   */
+  franchies?: number;
+  pictures?: string;
+  introduction?: string;
+  open_date?: Date;
+  /**
+   * 经纬度
+   */
+  lat_lng?: string;
+  update_at?: Date;
+  created_at?: Date;
+}
 
 
 
@@ -172,6 +216,22 @@ interface IArticles {
     service_end_date?:Date;
     created_at?:Date;
   }
+
+  /**
+ * 省份
+ */
+interface IRegion {
+  name: string;
+  /**
+   * 城市
+   */
+  city: ICity[];
+}
+
+interface ICity {
+  name: string;
+  area: string[];
+}
 
 
 

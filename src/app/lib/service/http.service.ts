@@ -13,11 +13,11 @@ import { FindValueSubscriber } from "rxjs/operators/find";
 @Injectable()
 export class MyHttpService {
   isMock: boolean = false;
-  isDev: boolean = false;
+  isDev: boolean = true;
   get ip() {
     return this.isDev ? this.localIp : this.serverIp;
   }
-  localIp = "http://192.168.1.167";
+  localIp = "http://192.168.1.164";
   serverIp = "http://47.100.23.203";
   Get(url: string, options?: RequestOptionsArgs) {
     console.log(url);
@@ -117,7 +117,7 @@ export class MyHttpService {
   }
 
   createMessage(type: "error" | "success" | "warning", text) {
-    return this._message.create(type, `这是一条${text}提示`);
+    return this._message.create(type, `${text}`);
   }
   constructor(public http: Http, private _message: NzMessageService) {}
 }

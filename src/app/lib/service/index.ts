@@ -7,6 +7,7 @@ export * from "./http.service";
 export * from "./editormd.service";
 export * from "./storage.service";
 export * from "./m2.service";
+export * from "./shop.service";
 export enum FormField {
   Image = 1,
   String,
