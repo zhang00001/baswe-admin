@@ -1,0 +1,867 @@
+<div class="container">
+  <div>
+    <button nz-button nzType="primary">新增</button>
+    <button nz-button="" nztype="default" class="ant-btn ant-btn-default">
+      <!---->
+      <i class="anticon anticon-search ng-star-inserted" style="display: inline-block;"></i>
+      <span>Search</span>
+    </button>
+
+  </div>
+  <div *ngIf="state==ViewState.List" >
+
+
+    <nz-table [nzPageSize]="50" [nzScroll]="{ y: '240px' }">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>姓名</th>
+          <th>性别</th>
+          <th>民族</th>
+          <th>工号</th>
+          <th>部门</th>
+          <th>职务</th>
+          <th>电话号码</th>
+          <th>身份证号</th>
+          <th>婚否</th>
+          <th>邮箱</th>
+          <th>现住地址</th>
+          <th>到职日期</th>
+          <th>操作</th>
+
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>123</td>
+          <td>张三</td>
+          <td>男</td>
+          <td>汉</td>
+          <td>123456</td>
+          <td>管理</td>
+          <td>其他</td>
+          <td>120</td>
+          <td>4256545615125</td>
+          <td>是</td>
+          <td>155612@139.com</td>
+          <td>湖北武汉</td>
+          <td>2018-3-10</td>
+          <td>
+            <a>修改</a>
+            <nz-divider nzType="vertical"></nz-divider>
+            <a>删除</a>
+
+          </td>
+        </tr>
+        <tr>
+          <td>123</td>
+          <td>张三</td>
+          <td>男</td>
+          <td>汉</td>
+          <td>123456</td>
+          <td>管理</td>
+          <td>其他</td>
+          <td>120</td>
+          <td>4256545615125</td>
+          <td>是</td>
+          <td>155612@139.com</td>
+          <td>湖北武汉</td>
+          <td>2018-3-10</td>
+          <td>
+            <a>修改</a>
+            <nz-divider nzType="vertical"></nz-divider>
+            <a>删除</a>
+
+          </td>
+        </tr>
+        <tr>
+          <td>123</td>
+          <td>张三</td>
+          <td>男</td>
+          <td>汉</td>
+          <td>123456</td>
+          <td>管理</td>
+          <td>其他</td>
+          <td>120</td>
+          <td>4256545615125</td>
+          <td>是</td>
+          <td>155612@139.com</td>
+          <td>湖北武汉</td>
+          <td>2018-3-10</td>
+          <td>
+            <a>修改</a>
+            <nz-divider nzType="vertical"></nz-divider>
+            <a>删除</a>
+
+          </td>
+        </tr>
+      </tbody>
+    </nz-table>
+    <ul class="ant-pagination ng-star-inserted">
+      <!---->
+      <li class="ant-pagination-prev ant-pagination-disabled" title="上一页">
+        <!---->
+        <!---->
+        <a class="ant-pagination-item-link ng-star-inserted"></a>
+        <!---->
+        <!---->
+      </li>
+      <li class="ant-pagination-item ant-pagination-item-active" title="1">
+        <!---->
+        <!---->
+        <!---->
+        <a class="ng-star-inserted">1</a>
+        <!---->
+      </li>
+      <!---->
+      <!---->
+      <li class="ant-pagination-item ng-star-inserted" title="2">
+        <!---->
+        <!---->
+        <!---->
+        <a class="ng-star-inserted">2</a>
+        <!---->
+      </li>
+      <li class="ant-pagination-item ng-star-inserted" title="3">
+        <!---->
+        <!---->
+        <!---->
+        <a class="ng-star-inserted">3</a>
+        <!---->
+      </li>
+      <li class="ant-pagination-item ng-star-inserted" title="4">
+        <!---->
+        <!---->
+        <!---->
+        <a class="ng-star-inserted">4</a>
+        <!---->
+      </li>
+      <!---->
+      <!---->
+      <li class="ant-pagination-item ng-star-inserted" title="5">
+        <!---->
+        <!---->
+        <!---->
+        <a class="ng-star-inserted">5</a>
+        <!---->
+      </li>
+      <li class="ant-pagination-next" title="下一页">
+        <!---->
+        <!---->
+        <a class="ant-pagination-item-link ng-star-inserted"></a>
+        <!---->
+        <!---->
+      </li>
+      <!---->
+    </ul>
+  </div>
+  <div *ngIf="state==ViewState.AddStaff">
+    <form novalidate="" nz-form="" class="ant-form ant-form-horizontal ng-untouched ng-pristine ng-invalid" style="width:80%;margin:0 auto;">
+
+      <nz-form-item class="ant-row ant-form-item">
+        <div class="ant-col-sm-8  ">
+          <label class="ant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">姓名:</label>
+
+          <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+            <div class="ant-form-item-control">
+              <span class="ant-form-item-children">
+                <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+              </span>
+              <!---->
+            </div>
+          </nz-form-control>
+
+
+        </div>
+        <div class="ant-col-sm-8  ">
+          <label class="aant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">性别:</label>
+
+          <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+            <div class="ant-form-item-control">
+              <span class="ant-form-item-children">
+                <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+              </span>
+              <!---->
+            </div>
+          </nz-form-control>
+
+
+        </div>
+        <div class="ant-col-sm-8  ">
+            <label class="aant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">民族:</label>
+
+            <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+              <div class="ant-form-item-control">
+                <span class="ant-form-item-children">
+                  <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                </span>
+                <!---->
+              </div>
+            </nz-form-control>
+
+
+          </div>
+      </nz-form-item>
+
+      <nz-form-item class="ant-row ant-form-item">
+          <div class="ant-col-sm-8  ">
+            <label class="ant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">生日:</label>
+
+            <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+              <div class="ant-form-item-control">
+                <span class="ant-form-item-children">
+                  <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                </span>
+                <!---->
+              </div>
+            </nz-form-control>
+
+
+          </div>
+          <div class="ant-col-sm-8  ">
+            <label class="aant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">籍贯:</label>
+
+            <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+              <div class="ant-form-item-control">
+                <span class="ant-form-item-children">
+                  <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                </span>
+                <!---->
+              </div>
+            </nz-form-control>
+
+
+          </div>
+          <div class="ant-col-sm-8  ">
+              <label class="aant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">电话:</label>
+
+              <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                <div class="ant-form-item-control">
+                  <span class="ant-form-item-children">
+                    <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                  </span>
+                  <!---->
+                </div>
+              </nz-form-control>
+
+
+            </div>
+        </nz-form-item>
+   <nz-form-item class="ant-row ant-form-item">
+        <div class="ant-col-sm-8  ">
+          <label class="ant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">学历:</label>
+
+          <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+            <div class="ant-form-item-control">
+              <span class="ant-form-item-children">
+                <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+              </span>
+              <!---->
+            </div>
+          </nz-form-control>
+
+
+        </div>
+        <div class="ant-col-sm-8  ">
+          <label class="aant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">身高:</label>
+
+          <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+            <div class="ant-form-item-control">
+              <span class="ant-form-item-children">
+                <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+              </span>
+              <!---->
+            </div>
+          </nz-form-control>
+
+
+        </div>
+        <div class="ant-col-sm-8  ">
+            <label class="aant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">特长:</label>
+
+            <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+              <div class="ant-form-item-control">
+                <span class="ant-form-item-children">
+                  <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                </span>
+                <!---->
+              </div>
+            </nz-form-control>
+
+
+          </div>
+      </nz-form-item>
+        <nz-form-item class="ant-row ant-form-item">
+            <div class="ant-col-sm-8  ">
+              <label class="ant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">身份证号:</label>
+
+              <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                <div class="ant-form-item-control">
+                  <span class="ant-form-item-children">
+                    <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                  </span>
+                  <!---->
+                </div>
+              </nz-form-control>
+
+
+            </div>
+            <div class="ant-col-sm-8  ">
+              <label class="aant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">邮箱:</label>
+
+              <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                <div class="ant-form-item-control">
+                  <span class="ant-form-item-children">
+                    <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                  </span>
+                  <!---->
+                </div>
+              </nz-form-control>
+
+
+            </div>
+            <div class="ant-col-sm-8  ">
+                <label class="aant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">现居地址:</label>
+
+                <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                  <div class="ant-form-item-control">
+                    <span class="ant-form-item-children">
+                      <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                    </span>
+                    <!---->
+                  </div>
+                </nz-form-control>
+
+
+              </div>
+          </nz-form-item>
+          <nz-form-item class="ant-row ant-form-item">
+              <div class="ant-col-sm-8  ">
+                <label class="ant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">密码:</label>
+
+                <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                  <div class="ant-form-item-control">
+                    <span class="ant-form-item-children">
+                      <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                    </span>
+                    <!---->
+                  </div>
+                </nz-form-control>
+
+
+              </div>
+              <div class="ant-col-sm-8  ">
+                <label class="aant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">确认密码:</label>
+
+                <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                  <div class="ant-form-item-control">
+                    <span class="ant-form-item-children">
+                      <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                    </span>
+                    <!---->
+                  </div>
+                </nz-form-control>
+
+
+              </div>
+              <div class="ant-col-sm-8  ">
+                  <label class="aant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">介绍人:</label>
+
+                  <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                    <div class="ant-form-item-control">
+                      <span class="ant-form-item-children">
+                        <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                      </span>
+                      <!---->
+                    </div>
+                  </nz-form-control>
+
+
+                </div>
+            </nz-form-item>
+          <nz-form-item class="ant-row ant-form-item">
+              <div class="ant-col-sm-8  ">
+                <label class="ant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">紧急联系人:</label>
+
+                <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                  <div class="ant-form-item-control">
+                    <span class="ant-form-item-children">
+                      <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                    </span>
+                    <!---->
+                  </div>
+                </nz-form-control>
+
+
+              </div>
+              <div class="ant-col-sm-8  ">
+                <label class="aant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">紧急联系人电话:</label>
+
+                <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                  <div class="ant-form-item-control">
+                    <span class="ant-form-item-children">
+                      <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                    </span>
+                    <!---->
+                  </div>
+                </nz-form-control>
+
+
+              </div>
+              <div class="ant-col-sm-8  ">
+                  <label class="aant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">关系:</label>
+
+                  <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                    <div class="ant-form-item-control">
+                      <span class="ant-form-item-children">
+                        <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                      </span>
+                      <!---->
+                    </div>
+                  </nz-form-control>
+
+
+                </div>
+            </nz-form-item>
+            <nz-form-item class="ant-row ant-form-item">
+                <div class="ant-col-sm-8  ">
+                  <label class="ant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">工号:</label>
+
+                  <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                    <div class="ant-form-item-control">
+                      <span class="ant-form-item-children">
+                        <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                      </span>
+                      <!---->
+                    </div>
+                  </nz-form-control>
+
+
+                </div>
+                <div class="ant-col-sm-8  ">
+                  <label class="aant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">部门:</label>
+
+                  <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                    <div class="ant-form-item-control">
+                      <span class="ant-form-item-children">
+                        <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                      </span>
+                      <!---->
+                    </div>
+                  </nz-form-control>
+
+
+                </div>
+                <div class="ant-col-sm-8  ">
+                    <label class="aant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">职位:</label>
+
+                    <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                      <div class="ant-form-item-control">
+                        <span class="ant-form-item-children">
+                          <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                        </span>
+                        <!---->
+                      </div>
+                    </nz-form-control>
+
+
+                  </div>
+              </nz-form-item>
+
+
+      <nz-form-item class="ant-row ant-form-item">
+
+        <label class="ant-form-item-required ant-col-xs-24 ant-col-sm-8  ant-form-item-label">上传头像:</label>
+
+        <nz-form-control class="ant-col-xs-24 ant-col-sm-5 ant-form-item-control-wrapper">
+          <div class="ant-form-item-control">
+            <span class="ant-form-item-children">
+                <button  nz-button="" nztype="dashed" style="width:60%" class="ant-btn ant-btn-dashed"><!----><i  class="anticon anticon-plus ng-star-inserted" style="display: inline-block;"></i><span> 上传头像</span></button>
+            </span>
+            <!---->
+          </div>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item class="ant-row ant-form-item">
+          <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-col-sm-offset-8  ant-form-item-control-wrapper">
+      <button nz-button nzType="primary" class="ant-col-sm-10">确认信息</button>   </nz-form-control></nz-form-item>
+
+    </form>
+  </div>
+  <div *ngIf="state==ViewState.UpdateStaff">
+      <form novalidate="" nz-form="" class="ant-form ant-form-horizontal ng-untouched ng-pristine ng-invalid" style="width:80%;margin:0 auto;">
+
+        <nz-form-item class="ant-row ant-form-item">
+          <div class="ant-col-sm-8  ">
+            <label class="ant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">姓名:</label>
+
+            <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+              <div class="ant-form-item-control">
+                <span class="ant-form-item-children">
+                  <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                </span>
+                <!---->
+              </div>
+            </nz-form-control>
+
+
+          </div>
+          <div class="ant-col-sm-8  ">
+            <label class="aant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">性别:</label>
+
+            <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+              <div class="ant-form-item-control">
+                <span class="ant-form-item-children">
+                  <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                </span>
+                <!---->
+              </div>
+            </nz-form-control>
+
+
+          </div>
+          <div class="ant-col-sm-8  ">
+              <label class="aant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">民族:</label>
+
+              <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                <div class="ant-form-item-control">
+                  <span class="ant-form-item-children">
+                    <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                  </span>
+                  <!---->
+                </div>
+              </nz-form-control>
+
+
+            </div>
+        </nz-form-item>
+
+        <nz-form-item class="ant-row ant-form-item">
+            <div class="ant-col-sm-8  ">
+              <label class="ant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">生日:</label>
+
+              <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                <div class="ant-form-item-control">
+                  <span class="ant-form-item-children">
+                    <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                  </span>
+                  <!---->
+                </div>
+              </nz-form-control>
+
+
+            </div>
+            <div class="ant-col-sm-8  ">
+              <label class="aant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">籍贯:</label>
+
+              <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                <div class="ant-form-item-control">
+                  <span class="ant-form-item-children">
+                    <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                  </span>
+                  <!---->
+                </div>
+              </nz-form-control>
+
+
+            </div>
+            <div class="ant-col-sm-8  ">
+                <label class="aant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">电话:</label>
+
+                <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                  <div class="ant-form-item-control">
+                    <span class="ant-form-item-children">
+                      <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                    </span>
+                    <!---->
+                  </div>
+                </nz-form-control>
+
+
+              </div>
+          </nz-form-item>
+     <nz-form-item class="ant-row ant-form-item">
+          <div class="ant-col-sm-8  ">
+            <label class="ant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">学历:</label>
+
+            <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+              <div class="ant-form-item-control">
+                <span class="ant-form-item-children">
+                  <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                </span>
+                <!---->
+              </div>
+            </nz-form-control>
+
+
+          </div>
+          <div class="ant-col-sm-8  ">
+            <label class="aant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">身高:</label>
+
+            <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+              <div class="ant-form-item-control">
+                <span class="ant-form-item-children">
+                  <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                </span>
+                <!---->
+              </div>
+            </nz-form-control>
+
+
+          </div>
+          <div class="ant-col-sm-8  ">
+              <label class="aant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">特长:</label>
+
+              <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                <div class="ant-form-item-control">
+                  <span class="ant-form-item-children">
+                    <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                  </span>
+                  <!---->
+                </div>
+              </nz-form-control>
+
+
+            </div>
+        </nz-form-item>
+          <nz-form-item class="ant-row ant-form-item">
+              <div class="ant-col-sm-8  ">
+                <label class="ant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">身份证号:</label>
+
+                <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                  <div class="ant-form-item-control">
+                    <span class="ant-form-item-children">
+                      <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                    </span>
+                    <!---->
+                  </div>
+                </nz-form-control>
+
+
+              </div>
+              <div class="ant-col-sm-8  ">
+                <label class="aant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">邮箱:</label>
+
+                <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                  <div class="ant-form-item-control">
+                    <span class="ant-form-item-children">
+                      <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                    </span>
+                    <!---->
+                  </div>
+                </nz-form-control>
+
+
+              </div>
+              <div class="ant-col-sm-8  ">
+                  <label class="aant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">现居地址:</label>
+
+                  <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                    <div class="ant-form-item-control">
+                      <span class="ant-form-item-children">
+                        <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                      </span>
+                      <!---->
+                    </div>
+                  </nz-form-control>
+
+
+                </div>
+            </nz-form-item>
+            <nz-form-item class="ant-row ant-form-item">
+                <div class="ant-col-sm-8  ">
+                  <label class="ant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">密码:</label>
+
+                  <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                    <div class="ant-form-item-control">
+                      <span class="ant-form-item-children">
+                        <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                      </span>
+                      <!---->
+                    </div>
+                  </nz-form-control>
+
+
+                </div>
+                <div class="ant-col-sm-8  ">
+                  <label class="aant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">确认密码:</label>
+
+                  <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                    <div class="ant-form-item-control">
+                      <span class="ant-form-item-children">
+                        <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                      </span>
+                      <!---->
+                    </div>
+                  </nz-form-control>
+
+
+                </div>
+                <div class="ant-col-sm-8  ">
+                    <label class="aant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">介绍人:</label>
+
+                    <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                      <div class="ant-form-item-control">
+                        <span class="ant-form-item-children">
+                          <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                        </span>
+                        <!---->
+                      </div>
+                    </nz-form-control>
+
+
+                  </div>
+              </nz-form-item>
+            <nz-form-item class="ant-row ant-form-item">
+                <div class="ant-col-sm-8  ">
+                  <label class="ant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">紧急联系人:</label>
+
+                  <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                    <div class="ant-form-item-control">
+                      <span class="ant-form-item-children">
+                        <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                      </span>
+                      <!---->
+                    </div>
+                  </nz-form-control>
+
+
+                </div>
+                <div class="ant-col-sm-8  ">
+                  <label class="aant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">紧急联系人电话:</label>
+
+                  <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                    <div class="ant-form-item-control">
+                      <span class="ant-form-item-children">
+                        <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                      </span>
+                      <!---->
+                    </div>
+                  </nz-form-control>
+
+
+                </div>
+                <div class="ant-col-sm-8  ">
+                    <label class="aant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">关系:</label>
+
+                    <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                      <div class="ant-form-item-control">
+                        <span class="ant-form-item-children">
+                          <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                        </span>
+                        <!---->
+                      </div>
+                    </nz-form-control>
+
+
+                  </div>
+              </nz-form-item>
+              <nz-form-item class="ant-row ant-form-item">
+                  <div class="ant-col-sm-8  ">
+                    <label class="ant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">工号:</label>
+
+                    <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                      <div class="ant-form-item-control">
+                        <span class="ant-form-item-children">
+                          <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                        </span>
+                        <!---->
+                      </div>
+                    </nz-form-control>
+
+
+                  </div>
+                  <div class="ant-col-sm-8  ">
+                    <label class="aant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">部门:</label>
+
+                    <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                      <div class="ant-form-item-control">
+                        <span class="ant-form-item-children">
+                          <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                        </span>
+                        <!---->
+                      </div>
+                    </nz-form-control>
+
+
+                  </div>
+                  <div class="ant-col-sm-8  ">
+                      <label class="aant-form-item-required ant-col-xs-24 ant-col-sm-10 ant-form-item-label">职位:</label>
+
+                      <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                        <div class="ant-form-item-control">
+                          <span class="ant-form-item-children">
+                            <input nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input">
+
+                          </span>
+                          <!---->
+                        </div>
+                      </nz-form-control>
+
+
+                    </div>
+                </nz-form-item>
+
+
+        <nz-form-item class="ant-row ant-form-item">
+
+          <label class="ant-form-item-required ant-col-xs-24 ant-col-sm-8  ant-form-item-label">上传头像:</label>
+
+          <nz-form-control class="ant-col-xs-24 ant-col-sm-5 ant-form-item-control-wrapper">
+            <div class="ant-form-item-control">
+              <span class="ant-form-item-children">
+                  <button  nz-button="" nztype="dashed" style="width:60%" class="ant-btn ant-btn-dashed"><!----><i  class="anticon anticon-plus ng-star-inserted" style="display: inline-block;"></i><span> 上传头像</span></button>
+              </span>
+              <!---->
+            </div>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item class="ant-row ant-form-item">
+            <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-col-sm-offset-8  ant-form-item-control-wrapper">
+        <button nz-button nzType="primary" class="ant-col-sm-10">确认信息</button>   </nz-form-control></nz-form-item>
+
+      </form>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+.main {
+    display: flex;
+}
+
+.msg-container {
+    width: 200px;
+    flex-shrink: 0;
+}
+
+.signup-container {
+    width: 100%;
+
+}
+.desc{
+  margin: 30px;
+}
