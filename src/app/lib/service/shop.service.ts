@@ -3,10 +3,8 @@ import { MyHttpService } from "./http.service";
 
 @Injectable()
 export class ShopService {
-  constructor(public http:MyHttpService) {
-
-  }
- shopApi = {
+  constructor(public http: MyHttpService) {}
+  shopApi = {
     /**
      * 商户登录
      *
@@ -27,11 +25,11 @@ export class ShopService {
      * 创建员工
      */
     createEmployee: "/api/shop/create-employee",
-     /**
-   * get  注册短信验证码
-   * ? phone
-   */
-  shopSignupAuthCode: "/api/shop/authcode",
+    /**
+     * get  注册短信验证码
+     * ? phone
+     */
+    shopSignupAuthCode: "/api/shop/authcode",
     /**
      * 获取
      * * 省份
@@ -41,15 +39,17 @@ export class ShopService {
      */
     getCityJSON: "/city.json"
   };
-  signup(NewShop:IShop,authcode:string){
-    NewShop["authcode"]=authcode;
-    return this.http.Post(this.shopApi.signup,NewShop)
+  signup(NewShop: IShop, authcode: string) {
+    NewShop["authcode"] = authcode;
+    return this.http.Post(this.shopApi.signup, NewShop);
   }
-  sendAuthcode(phone:string){
-
-return this.http.Get(this.shopApi.shopSignupAuthCode,{params:{phone} })
+  sendAuthcode(phone: string) {
+    return this.http.Get(this.shopApi.shopSignupAuthCode, {
+      params: { phone }
+    });
   }
-  getCityJSON():Promise<IRegion[]>{
-    return this.http.Get(this.shopApi.getCityJSON)
+  // 声明函数返回IRegion数组类型
+  getCityJSON(): Promise<IRegion[]> {
+    return this.http.Get(this.shopApi.getCityJSON);
   }
 }

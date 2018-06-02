@@ -9,7 +9,7 @@ import { ShopService } from "./../../lib/service/shop.service";
 })
 export class SignupPageComponent implements OnInit {
   authcode: "";
-  values:any[]=[]
+
 
   loopTime = 0;
   newShop: IShop = {
@@ -23,6 +23,7 @@ export class SignupPageComponent implements OnInit {
     addr: "",
     qq: ""
   };
+  values:any[]=[]
   options: CascaderOption[] = [];
 
   ngOnInit() {
