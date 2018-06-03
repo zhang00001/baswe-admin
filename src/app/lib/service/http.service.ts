@@ -17,7 +17,7 @@ export class MyHttpService {
   get ip() {
     return this.isDev ? this.localIp : this.serverIp;
   }
-  localIp = "http://192.168.1.164";
+  localIp = "http://localhost";
   serverIp = "http://47.100.23.203";
   Get(url: string, options?: RequestOptionsArgs) {
     console.log(url);
@@ -49,13 +49,11 @@ export class MyHttpService {
 
     // options = options ? options : {};
     if (!options) options = { headers: new Headers() };
-    options.headers = new Headers();
-    options.headers.set("content-type", "application/json");
+
+
+    // options.headers.set("content-type", "application/json");
     console.log(options);
-    let headers = new HttpHeaders({
-      "Content-Type": "application/json",
-      Authorization: "my-auth-token"
-    });
+
     // options.withCredentials = true;
     return this.http
       .post(`${this.ip}${url}`, body, options)
@@ -119,5 +117,5 @@ export class MyHttpService {
   createMessage(type: "error" | "success" | "warning", text) {
     return this._message.create(type, `${text}`);
   }
-  constructor(public http: Http, private _message: NzMessageService) {}
+  constructor(public http: Http, private _message: NzMessageService) { }
 }

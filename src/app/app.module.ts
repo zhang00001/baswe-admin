@@ -1,8 +1,8 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from "@angular/core";
 import { registerLocaleData } from "@angular/common";
-// import zh from "@angular/common/locales/zh";
-// registerLocaleData(zh);
+import zh from "@angular/common/locales/zh";
+registerLocaleData(zh);
 import { RouterModule } from "@angular/router";
 import { LibModule } from "./lib";
 import {
@@ -142,17 +142,17 @@ import { StaffListPageComponent } from './pages/home-page/staff-list-page/staff-
           {
             path: "activity/hire",
             component: HirePageComponent
-          },{
-            path:"home-page/room", //房间
-            component:RoomComponent
+          }, {
+            path: "home-page/room", //房间
+            component: RoomComponent
           },
           {
-            path:"home-page/member-list", //会员列表
-            component:MemberListPageComponent
+            path: "home-page/member-list", //会员列表
+            component: MemberListPageComponent
           },
           {
-            path:"home-page/staff-list",
-            component:StaffListPageComponent
+            path: "home-page/staff-list",
+            component: StaffListPageComponent
           }
 
         ]
@@ -163,4 +163,4 @@ import { StaffListPageComponent } from './pages/home-page/staff-list-page/staff-
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

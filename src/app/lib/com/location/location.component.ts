@@ -3,11 +3,11 @@ import { Component, OnInit, AfterContentInit, Input } from "@angular/core";
 @Component({
   selector: "app-location",
   templateUrl: "./location.component.html",
-  styleUrls: ["./location.component.scss"]
+  styleUrls: ["./location.component.css"]
 })
 export class LocationComponent implements OnInit, AfterContentInit {
   @Input() location: { lng: any; lat: any };
-  constructor() {}
+  constructor() { }
   ngAfterContentInit() {
     var map = new BMap.Map("allmap");
     let point = new BMap.Point(this.location.lng, this.location.lat);

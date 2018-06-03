@@ -1,222 +1,159 @@
 <nz-layout style="text-align:left;">
-  <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzWidth]="300" [nzTrigger]="null" class="sidebar" style="
+    <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzWidth]="300" [nzTrigger]="null" class="sidebar" style="
   width: 300px;
   min-height: 100vw;
   background: #001529;
   ">
-    <div class="logo" style="background:#001529">
-      <img src="/assets/images/logo.svg" alt="logo">
-    </div>
-    <ul nz-menu [nzMode]="'inline'" nzTheme='dark' [nzInlineCollapsed]="isCollapsed" style="background: #00151A;" *ngFor="let group of groups">
-      <li nz-submenu>
-        <span title>
+        <div class="logo" style="background:#001529">
+            <img src="/assets/images/logo.svg" alt="logo">
+        </div>
+        <ul nz-menu [nzMode]="'inline'" nzTheme='dark' [nzInlineCollapsed]="isCollapsed" style="background: #00151A;" *ngFor="let group of groups">
+            <li nz-submenu>
+                <span title>
 
           <i class=" anticon iconfont icon-guanliyuan1" style="margin-right: 8px"></i>
           <span>{{group.label}}</span>
-        </span>
-        <ul>
-          <li *ngFor="let child of group.children" nz-menu-item [routerLink]="child.link" routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i> {{child.label}}</li>
+                </span>
+                <ul>
+                    <li *ngFor="let child of group.children" nz-menu-item [routerLink]="child.link" routerLinkActive="ant-menu-item-selected">
+                        <i class="icon-guanliyuan iconfont"></i> {{child.label}}</li>
+                </ul>
+            </li>
         </ul>
-      </li>
-    </ul>
-    <ul nz-menu [nzMode]="'inline'" nzTheme='dark' [nzInlineCollapsed]="isCollapsed" style="background: #00151A;">
-      <li nz-submenu>
-        <span title>
+        <ul nz-menu [nzMode]="'inline'" nzTheme='dark' [nzInlineCollapsed]="isCollapsed" style="background: #00151A;">
+            <li nz-submenu>
+                <span title>
 
           <i class=" anticon iconfont icon-guanliyuan1" style="margin-right: 8px"></i>
           <span>房间</span>
-        </span>
-        <ul>
-          <li routerLink="/home-page/room" nz-menu-item routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i> 将下钟</li>
-          <li routerLink="/home-page/room" nz-menu-item routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i> 按人数</li>
-          <li routerLink="/home-page/room" nz-menu-item routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i> 按功能</li>
-          <li routerLink="/home-page/room" nz-menu-item routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i> 按楼层</li>
+                </span>
+                <ul>
+                    <li routerLink="/home-page/room" nz-menu-item routerLinkActive="ant-menu-item-selected">
+                        <i class="icon-guanliyuan iconfont"></i> 将下钟</li>
+                    <li routerLink="/home-page/room" nz-menu-item routerLinkActive="ant-menu-item-selected">
+                        <i class="icon-guanliyuan iconfont"></i> 按人数</li>
+                    <li routerLink="/home-page/room" nz-menu-item routerLinkActive="ant-menu-item-selected">
+                        <i class="icon-guanliyuan iconfont"></i> 按功能</li>
+                    <li routerLink="/home-page/room" nz-menu-item routerLinkActive="ant-menu-item-selected">
+                        <i class="icon-guanliyuan iconfont"></i> 按楼层</li>
 
 
+                </ul>
+            </li>
         </ul>
-      </li>
-    </ul>
-    <ul nz-menu [nzMode]="'inline'" nzTheme='dark' [nzInlineCollapsed]="isCollapsed" style="background: #00151A;">
-      <li nz-submenu>
-        <span title>
-
+        <ul nz-menu [nzMode]="'inline'" nzTheme='dark' [nzInlineCollapsed]="isCollapsed" style="background: #00151A;">
+            <li nz-submenu>
+                <span title>
           <i class=" anticon iconfont icon-guanliyuan1" style="margin-right: 8px"></i>
           <span>钟房</span>
-        </span>
-        <ul>
-          <li nz-menu-item routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i> 全部</li>
-          <li nz-menu-item routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i> 足疗师</li>
-
-          <li nz-menu-item routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i> 保健师</li>
-          <li nz-menu-item routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i> 足疗师</li>
-          <li nz-menu-item routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i> 养生师</li>
-          <li nz-menu-item routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i> 理疗师</li>
-          <li nz-menu-item routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i> 修脚师</li>
-          <li nz-menu-item routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i> 采耳师</li>
-          <li nz-menu-item routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i> 其他</li>
-          <li nz-menu-item routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i> 设置值班</li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                </span>
+                <ul>
+                    <li nz-menu-item routerLinkActive="ant-menu-item-selected">
+                        <i class="icon-guanliyuan iconfont"></i> 全部</li>
+                    <li nz-menu-item routerLinkActive="ant-menu-item-selected"><i class="icon-guanliyuan iconfont"></i> 足疗师</li>
+                    <li nz-menu-item routerLinkActive="ant-menu-item-selected"><i class="icon-guanliyuan iconfont"></i> 保健师</li>
+                    <li nz-menu-item routerLinkActive="ant-menu-item-selected">
+                        <i class="icon-guanliyuan iconfont"></i> 足疗师</li>
+                    <li nz-menu-item routerLinkActive="ant-menu-item-selected">
+                        <i class="icon-guanliyuan iconfont"></i> 养生师</li>
+                    <li nz-menu-item routerLinkActive="ant-menu-item-selected">
+                        <i class="icon-guanliyuan iconfont"></i> 理疗师</li>
+                    <li nz-menu-item routerLinkActive="ant-menu-item-selected">
+                        <i class="icon-guanliyuan iconfont"></i> 修脚师</li>
+                    <li nz-menu-item routerLinkActive="ant-menu-item-selected">
+                        <i class="icon-guanliyuan iconfont"></i> 采耳师</li>
+                    <li nz-menu-item routerLinkActive="ant-menu-item-selected">
+                        <i class="icon-guanliyuan iconfont"></i> 其他</li>
+                    <li nz-menu-item routerLinkActive="ant-menu-item-selected">
+                        <i class="icon-guanliyuan iconfont"></i> 设置值班</li>
+                </ul>
+            </li>
         </ul>
-      </li>
-    </ul>
-    <ul nz-menu [nzMode]="'inline'" nzTheme='dark' [nzInlineCollapsed]="isCollapsed" style="background: #00151A;" *ngFor="let group of groups">
-      <li nz-submenu>
-        <span title>
-
-          <i class=" anticon iconfont icon-guanliyuan1" style="margin-right: 8px"></i>
-          <span>手牌</span>
-        </span>
-        <ul>
-          <li *ngFor="let child of group.children" nz-menu-item [routerLink]="child.link" routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i> {{child.label}}</li>
+        <ul nz-menu [nzMode]="'inline'" nzTheme='dark' [nzInlineCollapsed]="isCollapsed" style="background: #00151A;">
+            <li nz-submenu>
+                <span title><i class=" anticon iconfont icon-guanliyuan1" style="margin-right: 8px"></i><span>手牌</span></span>
+            </li>
         </ul>
-      </li>
-    </ul>
-    <ul nz-menu [nzMode]="'inline'" nzTheme='dark' [nzInlineCollapsed]="isCollapsed" style="background: #00151A;" *ngFor="let group of groups">
-      <li nz-submenu>
-        <span title>
-
-          <i class=" anticon iconfont icon-guanliyuan1" style="margin-right: 8px"></i>
-          <span>管理</span>
-        </span>
-        <ul>
-          <li nz-menu-item routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i> 房间管理</li>
-          <li nz-menu-item routerLinkActive="ant-menu-item-selected" routerLink="home-page/staff-list">
-            <i class="icon-guanliyuan iconfont"></i> 员工管理</li>
-          <li nz-menu-item routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i> 排钟管理</li>
-          <li nz-menu-item routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i> 排班管理</li>
-          <li nz-menu-item routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i> 技能分配</li>
-          <li nz-menu-item routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i> 考勤管理</li>
-          <li nz-menu-item routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i> 制度管理</li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        <ul nz-menu [nzMode]="'inline'" nzTheme='dark' [nzInlineCollapsed]="isCollapsed" style="background: #00151A;">
+            <li nz-submenu><span title><i class=" anticon iconfont icon-guanliyuan1" style="margin-right: 8px"></i><span>管理</span></span>
+                <ul>
+                    <li nz-menu-item routerLinkActive="ant-menu-item-selected"><i class="icon-guanliyuan iconfont"></i> 房间管理</li>
+                    <li nz-menu-item routerLinkActive="ant-menu-item-selected" routerLink="home-page/staff-list"><i class="icon-guanliyuan iconfont"></i> 员工管理</li>
+                    <li nz-menu-item routerLinkActive="ant-menu-item-selected"><i class="icon-guanliyuan iconfont"></i> 排钟管理</li>
+                    <li nz-menu-item routerLinkActive="ant-menu-item-selected"><i class="icon-guanliyuan iconfont"></i> 排班管理</li>
+                    <li nz-menu-item routerLinkActive="ant-menu-item-selected"><i class="icon-guanliyuan iconfont"></i> 技能分配</li>
+                    <li nz-menu-item routerLinkActive="ant-menu-item-selected"><i class="icon-guanliyuan iconfont"></i> 考勤管理</li>
+                    <li nz-menu-item routerLinkActive="ant-menu-item-selected"><i class="icon-guanliyuan iconfont"></i> 制度管理</li>
+                </ul>
+            </li>
         </ul>
-      </li>
-    </ul>
-    <ul nz-menu [nzMode]="'inline'" nzTheme='dark' [nzInlineCollapsed]="isCollapsed" style="background: #00151A;" *ngFor="let group of groups">
-      <li nz-submenu>
-        <span title>
+        <ul nz-menu [nzMode]="'inline'" nzTheme='dark' [nzInlineCollapsed]="isCollapsed" style="background: #00151A;">
+            <li nz-submenu>
+                <span title>
 
           <i class=" anticon iconfont icon-guanliyuan1" style="margin-right: 8px"></i>
           <span>会员</span>
-        </span>
-        <ul>
-          <li nz-menu-item>
-            <i class="icon-guanliyuan iconfont"></i>注册</li>
-          <li nz-menu-item routerLink="home-page/member-list">
-            <i class="icon-guanliyuan iconfont"></i>列表</li>
-          <li nz-menu-item>
-            <i class="icon-guanliyuan iconfont"></i>查询</li>
-          <li nz-menu-item>
-            <i class="icon-guanliyuan iconfont"></i>注册</li>
-          <li nz-menu-item>
-            <i class="icon-guanliyuan iconfont"></i>储值产品创建</li>
-          <li nz-menu-item>
-            <i class="icon-guanliyuan iconfont"></i>营销产品创建</li>
-          <li nz-menu-item>
-            <i class="icon-guanliyuan iconfont"></i>发福利</li>
-
-
-
-
-
-
-
-
-
+                </span>
+                <ul>
+                    <li nz-menu-item>
+                        <i class="icon-guanliyuan iconfont"></i>注册</li>
+                    <li nz-menu-item routerLink="home-page/member-list">
+                        <i class="icon-guanliyuan iconfont"></i>列表</li>
+                    <li nz-menu-item>
+                        <i class="icon-guanliyuan iconfont"></i>查询</li>
+                    <li nz-menu-item>
+                        <i class="icon-guanliyuan iconfont"></i>注册</li>
+                    <li nz-menu-item>
+                        <i class="icon-guanliyuan iconfont"></i>储值产品创建</li>
+                    <li nz-menu-item>
+                        <i class="icon-guanliyuan iconfont"></i>营销产品创建</li>
+                    <li nz-menu-item>
+                        <i class="icon-guanliyuan iconfont"></i>发福利</li>
+                </ul>
+            </li>
         </ul>
-      </li>
-    </ul>
-    <ul nz-menu [nzMode]="'inline'" nzTheme='dark' [nzInlineCollapsed]="isCollapsed" style="background: #00151A;" *ngFor="let group of groups">
-      <li nz-submenu>
-        <span title>
+        <ul nz-menu [nzMode]="'inline'" nzTheme='dark' [nzInlineCollapsed]="isCollapsed" style="background: #00151A;">
+            <li nz-submenu>
+                <span title>
 
           <i class=" anticon iconfont icon-guanliyuan1" style="margin-right: 8px"></i>
           <span>商品库</span>
-        </span>
-        <ul>
-          <li nz-menu-item routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i> 主产品</li>
-          <li nz-menu-item routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i> 附加项目</li>
-          <li nz-menu-item routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i> 商品</li>
+                </span>
+                <ul>
+                    <li nz-menu-item routerLinkActive="ant-menu-item-selected">
+                        <i class="icon-guanliyuan iconfont"></i> 主产品</li>
+                    <li nz-menu-item routerLinkActive="ant-menu-item-selected">
+                        <i class="icon-guanliyuan iconfont"></i> 附加项目</li>
+                    <li nz-menu-item routerLinkActive="ant-menu-item-selected">
+                        <i class="icon-guanliyuan iconfont"></i> 商品</li>
 
 
 
+                </ul>
+            </li>
         </ul>
-      </li>
-    </ul>
-    <ul nz-menu [nzMode]="'inline'" nzTheme='dark' [nzInlineCollapsed]="isCollapsed" style="background: #00151A;" *ngFor="let group of groups">
-      <li nz-submenu>
-        <span title>
+        <ul nz-menu [nzMode]="'inline'" nzTheme='dark' [nzInlineCollapsed]="isCollapsed" style="background: #00151A;" *ngFor="let group of groups">
+            <li nz-submenu>
+                <span title>
 
           <i class=" anticon iconfont icon-guanliyuan1" style="margin-right: 8px"></i>
           <span>查询</span>
-        </span>
-        <ul>
-          <li nz-menu-item routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i>日报明细表</li>
-          <li nz-menu-item routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i>月报明细表</li>
-          <li nz-menu-item routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i>工资明细对账单</li>
-          <li nz-menu-item routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i>月工资明细对账单</li>
-          <li nz-menu-item routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i>账单查询</li>
-          <li nz-menu-item routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i>房间打扫记录查询</li>
-          <li nz-menu-item routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i>房间确认服务记录查询</li>
+                </span>
+                <ul>
+                    <li nz-menu-item routerLinkActive="ant-menu-item-selected">
+                        <i class="icon-guanliyuan iconfont"></i>日报明细表</li>
+                    <li nz-menu-item routerLinkActive="ant-menu-item-selected">
+                        <i class="icon-guanliyuan iconfont"></i>月报明细表</li>
+                    <li nz-menu-item routerLinkActive="ant-menu-item-selected">
+                        <i class="icon-guanliyuan iconfont"></i>工资明细对账单</li>
+                    <li nz-menu-item routerLinkActive="ant-menu-item-selected">
+                        <i class="icon-guanliyuan iconfont"></i>月工资明细对账单</li>
+                    <li nz-menu-item routerLinkActive="ant-menu-item-selected">
+                        <i class="icon-guanliyuan iconfont"></i>账单查询</li>
+                    <li nz-menu-item routerLinkActive="ant-menu-item-selected">
+                        <i class="icon-guanliyuan iconfont"></i>房间打扫记录查询</li>
+                    <li nz-menu-item routerLinkActive="ant-menu-item-selected">
+                        <i class="icon-guanliyuan iconfont"></i>房间确认服务记录查询</li>
 
 
 
@@ -228,42 +165,42 @@
 
 
 
+                </ul>
+            </li>
         </ul>
-      </li>
-    </ul>
-    <ul nz-menu [nzMode]="'inline'" nzTheme='dark' [nzInlineCollapsed]="isCollapsed" style="background: #00151A;" *ngFor="let group of groups">
-      <li nz-submenu>
-        <span title>
+        <ul nz-menu [nzMode]="'inline'" nzTheme='dark' [nzInlineCollapsed]="isCollapsed" style="background: #00151A;" *ngFor="let group of groups">
+            <li nz-submenu>
+                <span title>
 
           <i class=" anticon iconfont icon-guanliyuan1" style="margin-right: 8px"></i>
           <span>交班</span>
-        </span>
-        <ul>
-          <li *ngFor="let child of group.children" nz-menu-item [routerLink]="child.link" routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i> {{child.label}}</li>
+                </span>
+                <ul>
+                    <li *ngFor="let child of group.children" nz-menu-item [routerLink]="child.link" routerLinkActive="ant-menu-item-selected">
+                        <i class="icon-guanliyuan iconfont"></i> {{child.label}}</li>
+                </ul>
+            </li>
         </ul>
-      </li>
-    </ul>
-    <ul nz-menu [nzMode]="'inline'" nzTheme='dark' [nzInlineCollapsed]="isCollapsed" style="background: #00151A;" *ngFor="let group of groups">
-      <li nz-submenu>
-        <span title>
+        <ul nz-menu [nzMode]="'inline'" nzTheme='dark' [nzInlineCollapsed]="isCollapsed" style="background: #00151A;" *ngFor="let group of groups">
+            <li nz-submenu>
+                <span title>
 
           <i class=" anticon iconfont icon-guanliyuan1" style="margin-right: 8px"></i>
           <span>系统</span>
-        </span>
-        <ul>
-          <li nz-menu-item routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i> 权限分配</li>
-          <li nz-menu-item routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i> 我的坐标</li>
-          <li nz-menu-item routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i> 店铺照片上传</li>
-          <li nz-menu-item routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i> 推班管理</li>
-          <li nz-menu-item routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i> 系统设置</li>
-          <li nz-menu-item routerLinkActive="ant-menu-item-selected">
-            <i class="icon-guanliyuan iconfont"></i> 关于邦为</li>
+                </span>
+                <ul>
+                    <li nz-menu-item routerLinkActive="ant-menu-item-selected">
+                        <i class="icon-guanliyuan iconfont"></i> 权限分配</li>
+                    <li nz-menu-item routerLinkActive="ant-menu-item-selected">
+                        <i class="icon-guanliyuan iconfont"></i> 我的坐标</li>
+                    <li nz-menu-item routerLinkActive="ant-menu-item-selected">
+                        <i class="icon-guanliyuan iconfont"></i> 店铺照片上传</li>
+                    <li nz-menu-item routerLinkActive="ant-menu-item-selected">
+                        <i class="icon-guanliyuan iconfont"></i> 推班管理</li>
+                    <li nz-menu-item routerLinkActive="ant-menu-item-selected">
+                        <i class="icon-guanliyuan iconfont"></i> 系统设置</li>
+                    <li nz-menu-item routerLinkActive="ant-menu-item-selected">
+                        <i class="icon-guanliyuan iconfont"></i> 关于邦为</li>
 
 
 
@@ -273,10 +210,10 @@
 
 
 
+                </ul>
+            </li>
         </ul>
-      </li>
-    </ul>
-    <!-- <ul nz-menu [nzMode]="'inline'" nzTheme='dark' [nzInlineCollapsed]="isCollapsed" style="background: #00151A;">
+        <!-- <ul nz-menu [nzMode]="'inline'" nzTheme='dark' [nzInlineCollapsed]="isCollapsed" style="background: #00151A;">
       <li nz-submenu>
         <span title>
 
@@ -291,7 +228,7 @@
           <li nz-menu-item routerLink="/admin/article/article-manage" routerLinkActive="ant-menu-item-selected">
             <i class="icon-renshiguanli iconfont"></i>订单</li>
           <!-- <li nz-menu-item routerLink="/admin/article/article-analysis" routerLinkActive="ant-menu-item-selected"> -->
-    <!-- <i class="icon-renshiguanli iconfont"></i>文章统计</li> --
+        <!-- <i class="icon-renshiguanli iconfont"></i>文章统计</li> --
 
 
         </ul>
@@ -303,61 +240,48 @@
 
 
 
-  </nz-sider>
-  <nz-layout>
-    <nz-header style="background: #fff; padding:0;">
-      <i class="anticon trigger" [class.anticon-menu-fold]="!isCollapsed" [class.anticon-menu-unfold]="isCollapsed" (click)="isCollapsed=!isCollapsed"></i>
-<div class=col-lg-3>
-  <nz-breadcrumb>
-    <nz-breadcrumb-item>
-      Home
-    </nz-breadcrumb-item>
-    <nz-breadcrumb-item>
-      <a>Application List</a>
-    </nz-breadcrumb-item>
-    <nz-breadcrumb-item>
-      An Application
-    </nz-breadcrumb-item>
-  </nz-breadcrumb>
-</div>
+    </nz-sider>
+    <nz-layout>
+        <nz-header style="background: #fff; padding:0;">
+            <i class="anticon trigger" [class.anticon-menu-fold]="!isCollapsed" [class.anticon-menu-unfold]="isCollapsed" (click)="isCollapsed=!isCollapsed"></i>
 
-      <div class="right">
-        <div class="action">
+            <div class="right">
+                <div class="action">
 
-          <nz-badge [nzCount]="sendProductOrdersNum">
-            <ng-template #content>
-              <i class="anticon anticon-bell head-example" style="background:transparent;">
+                    <nz-badge [nzCount]="sendProductOrdersNum">
+                        <ng-template #content>
+                            <i class="anticon anticon-bell head-example" style="background:transparent;">
               </i>
-            </ng-template>
-          </nz-badge>
-        </div>
-        <div class="action">
-          <ul nz-menu [nzMode]="'horizontal'">
-            <li nz-submenu>
-              <span title>
+                        </ng-template>
+                    </nz-badge>
+                </div>
+                <div class="action">
+                    <ul nz-menu [nzMode]="'horizontal'">
+                        <li nz-submenu>
+                            <span title>
                 <i class="anticon anticon-setting"></i> 你好，{{shop_user_name}}</span>
-              <ul>
+                            <ul>
 
-                <li nz-menu-group>
-                  <span title (click)="logout()">登出</span>
+                                <li nz-menu-group>
+                                    <span title (click)="logout()">登出</span>
 
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
 
-    </nz-header>
-    <nz-content style="margin:0;background:#fff">
+        </nz-header>
+        <nz-content style="margin:0;background:#fff">
 
-      <router-outlet></router-outlet>
-    </nz-content>
-    <nz-footer style="text-align: center;">Powerd by 刺月无影
-      <!-- <br> QQ :2121718893
+            <router-outlet></router-outlet>
+        </nz-content>
+        <nz-footer style="text-align: center;">Powerd by 刺月无影
+            <!-- <br> QQ :2121718893
       <br> phone:13419597065 -->
 
-    </nz-footer>
+        </nz-footer>
 
-  </nz-layout>
+    </nz-layout>
 </nz-layout>

@@ -3,6 +3,7 @@ import { Http } from "@angular/http";
 import { Router } from "@angular/router";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 
+
 interface LoginOption {
   label: string;
   value: {
@@ -20,25 +21,26 @@ import {
 @Component({
   selector: "app-login-page",
   templateUrl: "./login-page.component.html",
-  styleUrls: ["./login-page.component.scss"]
+  styleUrls: ["./login-page.component.css"]
 })
 export class LoginPageComponent implements OnInit {
   username: string = "";
   password: string = "";
   selectedLoginOption: LoginOption;
   isElectron: boolean = !!this.electron.remote;
+  loading: boolean = false;
 
 
   constructor(
-    private fb: FormBuilder,
-    public admin: ShopService,
+
+    public shop: ShopService,
     public router: Router,
     public storage: StorageService,
     public m2: M2Service,
     public http: MyHttpService,
     public lowHttp: Http,
     public electron: ElectronService
-  ) {}
+  ) { }
 
   modules: IModule[] = [];
 
@@ -46,12 +48,20 @@ export class LoginPageComponent implements OnInit {
 
   }
   async login() {
-    this.cmsLogin();
+    if (!this.loading) {
+
+      this.loading = true;
+      let result = await this.shop.signin(this.username, this.password);
+
+      if (result) {
+        this.shop.shop_id = result.shop_id;
+        await this.shop.http.createMessage('success', '欢迎回来' + result.shop_name);
+        this.router.navigateByUrl('/admin')
+      }
+      this.loading = false;
+
+    }
   }
 
-  async cmsLogin() {
 
-
-
-  }
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, } from "@angular/core";
+import { Router, } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { ShopService } from "./../../lib/service/shop.service";
 
@@ -9,7 +10,9 @@ import { ShopService } from "./../../lib/service/shop.service";
 })
 export class SignupPageComponent implements OnInit {
   authcode: "";
-
+  checkLicense: boolean = false;
+  repeatPassword: string = '';
+  isSignuping: boolean = false;
 
   loopTime = 0;
   newShop: IShop = {
@@ -21,51 +24,64 @@ export class SignupPageComponent implements OnInit {
     region: "",
     city: "",
     addr: "",
-    qq: ""
+    qq: "",
+    area: ""
   };
-  values:any[]=[]
+  timmer: any;
+  values: any[] = []
   options: CascaderOption[] = [];
 
   ngOnInit() {
     this.changeNzOptions();
   }
 
-  public form: FormGroup;
 
-  constructor(private fb: FormBuilder, public shop: ShopService) {
-    this.createForm();
-  }
-
-  private createForm(): void {
-    this.form = this.fb.group({
-      name: [null, Validators.required]
-    });
-  }
-
-  public reset(): void {
-    this.form.reset();
-    console.log(this.form.value);
-  }
-
-  public submit(): void {
-    console.log(this.form.value);
+  constructor(private fb: FormBuilder, public shop: ShopService, public router: Router) {
   }
 
   public onChanges(values: any): void {
     console.log(values);
   }
-  signup() {
-    this.shop.signup(this.newShop, this.authcode);
+  async signup() {
+    if (this.repeatPassword != this.newShop.password) {
+      return this.shop.http.createMessage('warning', '密码不一致')
+    }
+    if (!this.checkLicense) {
+      return this.shop.http.createMessage('warning', '请勾选协议')
+    }
+    if (this.values.length < 3) {
+      return this.shop.http.createMessage('warning', '请选择地区')
+    }
+    this.newShop.region = this.values[0];
+    this.newShop.city = this.values[1];
+    this.newShop.area = this.values[2];
+
+    if (!this.isSignuping) {
+      this.isSignuping = true;
+      let result = await this.shop.signup(this.newShop, this.authcode);
+      if (result) {
+        await this.shop.http.createMessage('success', '注册成功');
+      }
+
+      this.isSignuping = false;
+    } else {
+      return;
+    }
+
   }
-  sendAuthcode() {
+  async sendAuthcode() {
     if (/^1[3-9]\d{9}$/.test(this.newShop.phone)) {
       console.log(this.newShop.phone);
+      await this.shop.sendAuthcode(this.newShop.phone);
       this.loopTime = 60;
-      let timer = setInterval(() => {
+      if (this.timmer) {
+        return;
+      }
+      this.timmer = setInterval(() => {
         if (this.loopTime > 0) {
           this.loopTime--;
         } else {
-          clearInterval(timer);
+          clearInterval(this.timmer);
         }
       }, 1000);
       // this.shop.sendAuthcode(this.newShop.phone)
@@ -88,8 +104,9 @@ export class SignupPageComponent implements OnInit {
       });
       return { label: region.name, value: region.name, children: cityChildren };
     });
-    console.log(this.options);
+  }
 
-
+  async goLogin() {
+    history.back()
   }
 }

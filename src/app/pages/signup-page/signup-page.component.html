@@ -3,191 +3,187 @@
 
 
 
-  <div class="signup-container">
-    <div class="desc">邦为软件平台注册</div>
+    <div class="signup-container">
+        <div class="desc">邦为软件平台注册</div>
 
-<div class="ant-form ant-form-horizontal ng-untouched ng-pristine ng-invalid ant-col-8 ant-col-offset-8">
-
-
+        <div class="ant-form ant-form-horizontal ng-untouched ng-pristine ng-invalid ant-col-8 ant-col-offset-8">
 
 
-      <nz-form-item class="ant-row ant-form-item">
-        <label   class="ant-form-item-required ant-col-xs-24 ant-col-sm-6 ant-form-item-label">姓名:</label>
 
 
-        <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
-          <div class="ant-form-item-control">
-            <span class="ant-form-item-children">
+            <nz-form-item class="ant-row ant-form-item">
+                <label class="ant-form-item-required ant-col-xs-24 ant-col-sm-6 ant-form-item-label">姓名:</label>
+
+
+                <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                    <div class="ant-form-item-control">
+                        <span class="ant-form-item-children">
               <input   nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input" [(ngModel)]="newShop.boss_name">
 
             </span>
-            <!---->
-          </div>
-        </nz-form-control>
-      </nz-form-item>
+                        <!---->
+                    </div>
+                </nz-form-control>
+            </nz-form-item>
 
-      <nz-form-item class="ant-row ant-form-item">
-        <label   class="ant-form-item-required ant-col-xs-24 ant-col-sm-6 ant-form-item-label">手机号：</label>
+            <nz-form-item class="ant-row ant-form-item">
+                <label class="ant-form-item-required ant-col-xs-24 ant-col-sm-6 ant-form-item-label">手机号：</label>
 
-        <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
-          <div class="ant-form-item-control">
-            <span class="ant-form-item-children">
+                <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                    <div class="ant-form-item-control">
+                        <span class="ant-form-item-children">
               <input   nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input" [(ngModel)]="newShop.phone">
 
             </span>
-            <!---->
-          </div>
-        </nz-form-control>
-      </nz-form-item>
-      <nz-form-item class="ant-row ant-form-item">
-          <label   class="ant-form-item-required ant-col-xs-24 ant-col-sm-6 ant-form-item-label">验证码:</label>
+                        <!---->
+                    </div>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item class="ant-row ant-form-item">
+                <label class="ant-form-item-required ant-col-xs-24 ant-col-sm-6 ant-form-item-label">验证码:</label>
 
-          <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
-            <div class="ant-form-item-control">
-              <span class="ant-form-item-children ant-col-sm-12">
+                <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                    <div class="ant-form-item-control">
+                        <span class="ant-form-item-children ant-col-sm-12">
                 <input   nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input"   [(ngModel)]="authcode">
 
               </span>
-              <button nz-button nzType="primary" class="ant-col-sm-6" (click)="sendAuthcode()">{{loopTime>0?loopTime:"发送验证码"}}</button>
-              <!---->
-            </div>
-          </nz-form-control>
-        </nz-form-item>
-        <nz-form-item class="ant-row ant-form-item">
+                        <button nz-button nzType="primary" class="ant-col-sm-6" (click)="sendAuthcode()">{{loopTime>0?loopTime:"发送验证码"}}</button>
+                        <!---->
+                    </div>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item class="ant-row ant-form-item">
 
-            <label   class="ant-form-item-required ant-col-xs-24 ant-col-sm-6 ant-form-item-label">推荐人:</label>
+                <label class="ant-form-item-required ant-col-xs-24 ant-col-sm-6 ant-form-item-label">推荐人:</label>
 
-            <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
-              <div class="ant-form-item-control">
-                <span class="ant-form-item-children">
+                <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                    <div class="ant-form-item-control">
+                        <span class="ant-form-item-children">
                   <input  nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input" [(ngModel)]="newShop.referrer" >
 
                 </span>
-                <!---->
-              </div>
-            </nz-form-control>
-          </nz-form-item>
-      <nz-form-item class="ant-row ant-form-item">
+                        <!---->
+                    </div>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item class="ant-row ant-form-item">
 
-          <label   class="ant-form-item-required ant-col-xs-24 ant-col-sm-6 ant-form-item-label">公司名称：</label>
+                <label class="ant-form-item-required ant-col-xs-24 ant-col-sm-6 ant-form-item-label">公司名称：</label>
 
-          <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
-            <div class="ant-form-item-control">
-              <span class="ant-form-item-children">
+                <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                    <div class="ant-form-item-control">
+                        <span class="ant-form-item-children">
                 <input   nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input" [(ngModel)]="newShop.shop_name" >
 
               </span>
-              <!---->
-            </div>
-          </nz-form-control>
-        </nz-form-item>
-      <nz-form-item class="ant-row ant-form-item">
+                        <!---->
+                    </div>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item class="ant-row ant-form-item">
 
-          <label   class="ant-form-item-required ant-col-xs-24 ant-col-sm-6 ant-form-item-label">qq：</label>
+                <label class="ant-form-item-required ant-col-xs-24 ant-col-sm-6 ant-form-item-label">qq：</label>
 
-          <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
-            <div class="ant-form-item-control">
-              <span class="ant-form-item-children">
+                <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                    <div class="ant-form-item-control">
+                        <span class="ant-form-item-children">
                 <input  nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input" [(ngModel)]="newShop.qq">
 
               </span>
-              <!---->
-            </div>
-          </nz-form-control>
-        </nz-form-item>
-        <nz-form-item class="ant-row ant-form-item">
-          <label   class="ant-form-item-required ant-col-xs-24 ant-col-sm-6 ant-form-item-label">密码:</label>
+                        <!---->
+                    </div>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item class="ant-row ant-form-item">
+                <label class="ant-form-item-required ant-col-xs-24 ant-col-sm-6 ant-form-item-label">密码:</label>
 
 
-          <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
-            <div class="ant-form-item-control">
-              <span class="ant-form-item-children">
+                <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                    <div class="ant-form-item-control">
+                        <span class="ant-form-item-children">
                 <input  nz-input="" type="password" class="ng-untouched ng-pristine ng-invalid ant-input" [(ngModel)]="newShop.password">
 
               </span>
-              <!---->
-            </div>
-          </nz-form-control>
-        </nz-form-item>
+                        <!---->
+                    </div>
+                </nz-form-control>
+            </nz-form-item>
 
-        <nz-form-item class="ant-row ant-form-item">
-          <label   class="ant-form-item-required ant-col-xs-24 ant-col-sm-6 ant-form-item-label">确认密码：</label>
+            <nz-form-item class="ant-row ant-form-item">
+                <label class="ant-form-item-required ant-col-xs-24 ant-col-sm-6 ant-form-item-label">确认密码：</label>
 
 
-          <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
-            <div class="ant-form-item-control">
-              <span class="ant-form-item-children">
-                <input   nz-input="" type="password" class="ng-untouched ng-pristine ng-invalid ant-input" [(ngModel)]="newShop.password">
+                <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                    <div class="ant-form-item-control">
+                        <span class="ant-form-item-children">
+                <input   nz-input="" type="password" class="ng-untouched ng-pristine ng-invalid ant-input" [(ngModel)]="repeatPassword">
 
               </span>
-              <!---->
-            </div>
-          </nz-form-control>
-        </nz-form-item>
-      <nz-form-item class="ant-row ant-form-item">
-        <label  class="ant-form-item-required ant-col-xs-24 ant-col-sm-6 ant-form-item-label">企业座机号：</label>
+                        <!---->
+                    </div>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item class="ant-row ant-form-item">
+                <label class="ant-form-item-required ant-col-xs-24 ant-col-sm-6 ant-form-item-label">企业座机号：</label>
 
 
-        <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
-          <div class="ant-form-item-control">
-            <span class="ant-form-item-children">
+                <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                    <div class="ant-form-item-control">
+                        <span class="ant-form-item-children">
               <input   nz-input="" class="ng-untouched ng-pristine ng-invalid ant-input" [(ngModel)]="newShop.telphone">
 
             </span>
-            <!---->
-          </div>
-        </nz-form-control>
-      </nz-form-item>
-      <nz-form-item class="ant-row ant-form-item">
-        <label   class="ant-form-item-required ant-col-xs-24 ant-col-sm-6 ant-form-item-label">详细地址：</label>
+                        <!---->
+                    </div>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item class="ant-row ant-form-item">
+                <label class="ant-form-item-required ant-col-xs-24 ant-col-sm-6 ant-form-item-label">详细地址：</label>
 
 
-        <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
-            <div class="ant-form-item-control optiona">
-              <nz-cascader [nzOptions]="options" [(ngModel)]="values" (ngModelChange)="onChanges($event)" (click)="changeNzOptions()">
-            </nz-cascader>
-            <!-- <a href="javascript:;" (click)="changeNzOptions()" class="change-options">
+                <nz-form-control class="ant-col-xs-24 ant-col-sm-14 ant-form-item-control-wrapper">
+                    <div class="ant-form-item-control optiona">
+                        <nz-cascader [nzOptions]="options" [(ngModel)]="values" (ngModelChange)="onChanges($event)" (click)="changeNzOptions()" [nzPlaceHolder]="'请选择地址'">
+                        </nz-cascader>
+                        <!-- <a href="javascript:;" (click)="changeNzOptions()" class="change-options">
               Change Options
             </a> -->
-              <!---->
-            </div>
-          </nz-form-control>
-      </nz-form-item>
-      <nz-form-item nz-row="" style="margin-bottom:8px;" class="ant-row ant-form-item">
-        <nz-form-control class="ant-col-14 ant-col-offset-6 ant-form-item-control-wrapper">
-          <div class="ant-form-item-control">
-            <span class="ant-form-item-children">
-              <label  nz-checkbox="" class="ant-checkbox-wrapper ng-untouched ng-pristine ng-valid">
-
-
+                        <!---->
+                    </div>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item nz-row="" style="margin-bottom:8px;" class="ant-row ant-form-item">
+                <nz-form-control class="ant-col-14 ant-col-offset-6 ant-form-item-control-wrapper">
+                    <div class="ant-form-item-control">
+                        <span class="ant-form-item-children">
+              <label  nz-checkbox="" [(ngModel)]="checkLicense" class="ant-checkbox-wrapper ng-untouched ng-pristine ng-valid">
                 <span>
                   <span>我已阅读
                     <a>邦为条款</a>
                   </span>
-                </span>
-              </label>
-            </span>
-          </div>
-        </nz-form-control>
-      </nz-form-item>
-      <nz-form-item nz-row="" style="margin-bottom:8px;" class="ant-row ant-form-item">
-        <nz-form-control class="ant-col-14 ant-col-offset-6 ant-form-item-control-wrapper">
-          <div class="ant-form-item-control">
-            <span class="ant-form-item-children">
-              <button nz-button="" nztype="primary" class="ant-btn ant-btn-primary"  (click)="signup()">
+                        </span>
+                        </label>
+                        </span>
+                    </div>
+                </nz-form-control>
+            </nz-form-item>
+            <nz-form-item nz-row="" style="margin-bottom:8px;" class="ant-row ant-form-item">
+                <nz-form-control class="ant-col-14 ant-col-offset-6 ant-form-item-control-wrapper">
+                    <div class="ant-form-item-control">
+                        <span class="ant-form-item-children">
+                            <button nz-button nztype="default"  (click)="goLogin()">
+                                <!---->
+                                <span>返回登录</span>
+                        </button>
+                        <button nz-button="" nztype="primary" class="ant-btn ant-btn-primary" (click)="signup()">
                 <!---->
                 <span>确认注册</span>
-              </button>
-            </span>
-          </div>
-        </nz-form-control>
-      </nz-form-item>
-
-
-
+                        </button>
+                        </span>
+                    </div>
+                </nz-form-control>
+            </nz-form-item>
+        </div>
     </div>
-
-  </div>
-
-
 </div>
