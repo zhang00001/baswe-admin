@@ -19,6 +19,7 @@ export class HomePageComponent implements OnInit {
   async ngOnInit() {
     this.shop_user_name = this.storage.shop_user_name
     this.groups = this.admin.getModuleGroup(this.storage.adminModuleList);
+    console.log(this.groups);
   }
 
   async getAdminInfo() { }

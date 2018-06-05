@@ -147,7 +147,7 @@ export class AdminService {
     let groups = [];
 
     modules.forEach(modu => {
-      let isChild = modules.find(mcurrent => mcurrent.id == modu.parent_id);
+      let isChild = modules.find(mcurrent => mcurrent.module_id == modu.parent_id && modu.parent_id != 0);
       /**
        * 属于子模块并且子模块已存在分组中
        * 此时
@@ -159,22 +159,22 @@ export class AdminService {
       );
       groups.find(group => {
         // console.log(group.id, modu.id);
-        return group.id == modu.id;
+        return group.id == modu.module_id;
       });
       // ), groups)};
       if (isChild && existGroup) {
         // console.log(`pushc child`);
         existGroup.children.push({
           label: modu.name,
-          value: modu.id,
-          id: modu.id,
+          value: modu.module_id,
+          id: modu.module_id,
           link: modu.link,
           checked: false
         });
       } else {
         groups.push({
-          id: modu.id,
-          value: modu.id,
+          id: modu.module_id,
+          value: modu.module_id,
           label: modu.name,
           link: modu.link,
           checkdAll: false,
@@ -221,7 +221,7 @@ export class AdminService {
     return this.api.Get(this.adminApi.systemModule.getModuleAll);
   }
   async updateModule(module_id, module: IModule) {
-    if (module.id) delete module.id;
+    if (module.module_id) delete module.module_id;
     return this.api.Post(this.adminApi.systemModule.updateModule, module, {
       params: { module_id }
     });
@@ -310,5 +310,5 @@ export class AdminService {
     public _message: NzMessageService,
     public common: CommonService,
     public electron: ElectronService
-  ) {}
+  ) { }
 }

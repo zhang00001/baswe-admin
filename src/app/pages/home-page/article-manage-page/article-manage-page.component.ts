@@ -123,10 +123,10 @@ export class ArticleManagePageComponent implements OnInit, AfterContentInit {
       }
     );
   };
-  async ngAfterContentInit() {}
+  async ngAfterContentInit() { }
 
-  deleteArticle(article_id) {}
-  deleteArticles() {}
+  deleteArticle(article_id) { }
+  deleteArticles() { }
   async initEditor(content_md?: string) {
     let md;
     if (content_md) {
@@ -139,7 +139,7 @@ export class ArticleManagePageComponent implements OnInit, AfterContentInit {
     console.log(md);
     setTimeout(async () => {
       this.editor = await this.editorService.initEditor("test-editormd", md);
-    }, 1000);
+    }, 2000);
   }
   handlePreview = (file: UploadFile) => {
     this.previewImage = file.url || file.thumbUrl;

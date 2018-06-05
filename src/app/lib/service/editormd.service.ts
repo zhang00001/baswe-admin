@@ -34,7 +34,7 @@ export class EditormdService {
       imageUpload: false,
       imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
       // imageUploadURL: "./php/upload.php",
-      onload: function() {
+      onload: function () {
         console.log("onload", this);
         //this.fullscreen();
         //this.unwatch();
@@ -47,14 +47,16 @@ export class EditormdService {
       }
     };
   }
-  constructor() {}
+  constructor() { }
 
   initEditor(
     selector: string,
     md: string,
     config: EditorConfig = this.defaultEditorConfig
   ) {
+
     config.markdown = md;
+    console.log('init editor', selector, config)
     return editormd(selector, config);
   }
 }

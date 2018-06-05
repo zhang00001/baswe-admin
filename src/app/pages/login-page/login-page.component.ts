@@ -54,8 +54,10 @@ export class LoginPageComponent implements OnInit {
       let result = await this.shop.signin(this.username, this.password);
 
       if (result) {
-        this.shop.shop_id = result.shop_id;
+        this.shop.shop_id = result.shop.shop_id;
+
         await this.shop.http.createMessage('success', '欢迎回来' + result.shop_name);
+        this.storage.adminModuleList = result.modules;
         this.router.navigateByUrl('/admin')
       }
       this.loading = false;

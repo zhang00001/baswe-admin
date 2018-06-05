@@ -132,7 +132,7 @@
                 </ul>
             </li>
         </ul>
-        <ul nz-menu [nzMode]="'inline'" nzTheme='dark' [nzInlineCollapsed]="isCollapsed" style="background: #00151A;" *ngFor="let group of groups">
+        <ul nz-menu [nzMode]="'inline'" nzTheme='dark' [nzInlineCollapsed]="isCollapsed" style="background: #00151A;">
             <li nz-submenu>
                 <span title>
 
@@ -168,20 +168,18 @@
                 </ul>
             </li>
         </ul>
-        <ul nz-menu [nzMode]="'inline'" nzTheme='dark' [nzInlineCollapsed]="isCollapsed" style="background: #00151A;" *ngFor="let group of groups">
+        <ul nz-menu [nzMode]="'inline'" nzTheme='dark' [nzInlineCollapsed]="isCollapsed" style="background: #00151A;">
             <li nz-submenu>
                 <span title>
 
           <i class=" anticon iconfont icon-guanliyuan1" style="margin-right: 8px"></i>
           <span>交班</span>
                 </span>
-                <ul>
-                    <li *ngFor="let child of group.children" nz-menu-item [routerLink]="child.link" routerLinkActive="ant-menu-item-selected">
-                        <i class="icon-guanliyuan iconfont"></i> {{child.label}}</li>
-                </ul>
+
             </li>
         </ul>
-        <ul nz-menu [nzMode]="'inline'" nzTheme='dark' [nzInlineCollapsed]="isCollapsed" style="background: #00151A;" *ngFor="let group of groups">
+
+        <ul nz-menu [nzMode]="'inline'" nzTheme='dark' [nzInlineCollapsed]="isCollapsed" style="background: #00151A;">
             <li nz-submenu>
                 <span title>
 
@@ -201,15 +199,6 @@
                         <i class="icon-guanliyuan iconfont"></i> 系统设置</li>
                     <li nz-menu-item routerLinkActive="ant-menu-item-selected">
                         <i class="icon-guanliyuan iconfont"></i> 关于邦为</li>
-
-
-
-
-
-
-
-
-
                 </ul>
             </li>
         </ul>

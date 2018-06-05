@@ -98,7 +98,7 @@ export class RolePageComponent implements OnInit {
       let ids: number[] = typeof data.modules_ids == 'string' ? JSON.parse(data.modules_ids) : data.modules_ids;
       console.log(ids, this.modules);
       data.modules_ids_str = ids.map(
-        id => this.modules.find(mo => mo.id == id) ? this.modules.find(mo => mo.id == id).name : ''
+        id => this.modules.find(mo => mo.module_id == id) ? this.modules.find(mo => mo.module_id == id).name : ''
       );
     });
     this.dataSet = dataSet;

@@ -32,6 +32,7 @@ export class SignupPageComponent implements OnInit {
   options: CascaderOption[] = [];
 
   ngOnInit() {
+
     this.changeNzOptions();
   }
 
@@ -104,6 +105,7 @@ export class SignupPageComponent implements OnInit {
       });
       return { label: region.name, value: region.name, children: cityChildren };
     });
+
   }
 
   async goLogin() {

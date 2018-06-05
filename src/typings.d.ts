@@ -43,7 +43,7 @@ interface IMaterial {
 }
 
 interface IModule {
-  id?: number;
+  module_id?: number;
   name?: string; //选择的模块分类，用户下拉选择
   parent_id?: number;
   parent?: string;

@@ -102,14 +102,14 @@ export class ModulePageComponent implements OnInit {
   async deleteModules() {
     this.loading = true;
     await this.admin.deleteModules(
-      this.dataSet.filter(data => data.checked).map(data => data.id)
+      this.dataSet.filter(data => data.checked).map(data => data.module_id)
     );
     await this.getModulePage();
     this.loading = false;
   }
   async updateModule() {
     this.loading = true;
-    await this.admin.updateModule(this.selectedModule.id, this.selectedModule);
+    await this.admin.updateModule(this.selectedModule.module_id, this.selectedModule);
     await this.getModulePage();
     this.loading = false;
   }
