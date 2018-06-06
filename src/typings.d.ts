@@ -61,6 +61,7 @@ interface IRole {
   name?: string;
   modules_ids?: number[];
   modules_ids_str?: string[];
+  shop_id?:number;
 }
 
 interface IUser {

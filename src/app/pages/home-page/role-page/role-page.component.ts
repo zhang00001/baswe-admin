@@ -67,7 +67,12 @@ export class RolePageComponent implements OnInit {
       group.checkAll = true;
     }
   }
-
+  set shop_id(_id: string) {
+    localStorage.setItem('shop_id', _id + '')
+  }
+  get shop_id() {
+    return localStorage.getItem('shop_id')
+  }
   updateSingleChecked(group): void {
     if (
       group.children.every(group => group.checked) ||
@@ -82,34 +87,46 @@ export class RolePageComponent implements OnInit {
   reset() { }
   async createRole() {
     this.newRole.modules_ids = this.checkedModulesIds;
-    await this.admin.createRole(this.newRole);
-    await this.admin.getRolePage();
-    this.state = ViewState.List;
+     this.admin.createRole(this.newRole).then(rtn=>{
+       this.getRolePage();
+       this.state = ViewState.List;
+     })
+
+
+
+
+
+
+  }
+  async sleep(time=1000){
+    await new Promise(resolve=>setTimeout(()=>resolve(true),time));
   }
   async getRolePage() {
     this.loading = true;
     let result = await this.admin.getRolePage(
       this.pageIndex - 1,
-      this.pageSize
+      this.pageSize,
     );
     console.log(result);
-    let dataSet = result.list;
-    dataSet.forEach(data => {
+
+     result.rows.forEach(data => {
       let ids: number[] = typeof data.modules_ids == 'string' ? JSON.parse(data.modules_ids) : data.modules_ids;
       console.log(ids, this.modules);
       data.modules_ids_str = ids.map(
         id => this.modules.find(mo => mo.module_id == id) ? this.modules.find(mo => mo.module_id == id).name : ''
       );
     });
-    this.dataSet = dataSet;
-    console.log(dataSet);
-    this.total = result.total;
     this.loading = false;
+    this.dataSet = result.rows;
+    console.log(result.rows);
+    this.total = result.count;
+
   }
   async deleteRole(role_id) {
     this.loading = true;
     await this.admin.deleteRoles([role_id]);
     await this.getRolePage();
+
     this.loading = false;
   }
   async deleteRoles() {
@@ -123,7 +140,7 @@ export class RolePageComponent implements OnInit {
 
   async ngOnInit() {
     await this.getModuleGroup();
-    this.getRolePage();
+    await this.getRolePage();
   }
   get checkedModulesIds() {
     let moduleIds = [];

@@ -42,7 +42,7 @@
         <tr *ngFor="let data of ajaxTable.data">
           <td nzShowCheckbox [(nzChecked)]="data.checked"></td>
           <td>{{data.name }}</td>
-          <td>{{data.modules_ids_str.join(',')}}</td>
+          <td>{{data.modules_ids_str}}</td>
           <td>{{data.keyword}}</td>
           <td>{{data.link}}</td>
 
@@ -54,7 +54,7 @@
         </tr>
       </tbody>
     </nz-table>
-    <nz-pagination [nzPageIndex]="pageIndex" [nzTotal]="total" nzShowSizeChanger (nzPageIndexChange)="getModuleGroup()" [nzPageSize]="pageSize"
+    <nz-pagination [nzPageIndex]="pageIndex" [nzTotal]="total" nzShowSizeChanger (nzPageIndexChange)="getRolePage()" [nzPageSize]="pageSize"
       style="text-align:right;margin-top: 40px;"></nz-pagination>
   </div>
 </div>

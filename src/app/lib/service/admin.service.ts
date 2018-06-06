@@ -14,7 +14,7 @@ export class AdminService {
       deleteModule: "/admin/delete-module",
       updateModule: "/admin/update-module",
       findModule: "/admin/find-module",
-      creatRole: "/admin/creat-role",
+      creatRole: "/admin/create-role",
       deleteRole: "/admin/delete-role",
       updateRole: "/admin/update-role",
       findRole: "/admin/find-role",
@@ -147,7 +147,9 @@ export class AdminService {
     let groups = [];
 
     modules.forEach(modu => {
-      let isChild = modules.find(mcurrent => mcurrent.module_id == modu.parent_id && modu.parent_id != 0);
+      let isChild = modules.find(
+        mcurrent => mcurrent.module_id == modu.parent_id && modu.parent_id != 0
+      );
       /**
        * 属于子模块并且子模块已存在分组中
        * 此时
@@ -169,7 +171,8 @@ export class AdminService {
           value: modu.module_id,
           id: modu.module_id,
           link: modu.link,
-          checked: false
+          checked: false,
+          icon_font:modu.icon_font
         });
       } else {
         groups.push({
@@ -177,6 +180,7 @@ export class AdminService {
           value: modu.module_id,
           label: modu.name,
           link: modu.link,
+          icon_font:modu.icon_font,
           checkdAll: false,
           children: []
         });
@@ -194,6 +198,12 @@ export class AdminService {
       { username, password }
     );
   }
+  set shop_id(_id: string) {
+    localStorage.setItem("shop_id", _id + "");
+  }
+  get shop_id() {
+    return localStorage.getItem("shop_id");
+  }
 
   updateUser(user_id, user) {
     if (user.id) {
@@ -210,11 +220,13 @@ export class AdminService {
 
   getRolePage(page = 0, pageSize = 10) {
     return this.api.Get(this.adminApi.systemModule.getRolePage, {
-      params: { page, pageSize }
+      params: { page, pageSize, shop_id: this.shop_id }
     });
   }
   getRoleAll() {
-    return this.api.Get(this.adminApi.systemModule.getRoleAll, { params: {} });
+    return this.api.Get(this.adminApi.systemModule.getRoleAll, {
+      params: { shop_id: this.shop_id }
+    });
   }
 
   getModuleAll() {
@@ -248,10 +260,11 @@ export class AdminService {
     return this.api.Post(this.adminApi.systemModule.creatModule, module);
   }
   createRole(newRole: IRole) {
-    this.api.Post(this.adminApi.systemModule.creatRole, newRole);
+    newRole.shop_id  = this.shop_id as any;
+  return  this.api.Post(this.adminApi.systemModule.creatRole, newRole);
   }
   createUser(user: IUser) {
-    this.api.Post(this.adminApi.systemModule.creatUser, user);
+   return  this.api.Post(this.adminApi.systemModule.creatUser, user);
   }
   deleteModules(module_ids: number[]) {
     return this.api.Post(this.adminApi.systemModule.deleteModule, {
@@ -310,5 +323,5 @@ export class AdminService {
     public _message: NzMessageService,
     public common: CommonService,
     public electron: ElectronService
-  ) { }
+  ) {}
 }

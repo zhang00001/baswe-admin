@@ -110,6 +110,7 @@ interface IShop {
 
 
 interface IEmployee {
+  role_id:number;
   shop_id?: number;
   employee_id?: number;
   sex: number;

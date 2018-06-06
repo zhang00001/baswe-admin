@@ -44,6 +44,8 @@ import { RoomComponent } from './pages/home-page/room/room.component';
 import { rootRenderNodes } from "@angular/core/src/view";
 import { MemberListPageComponent } from './pages/home-page/member-list-page/member-list-page.component';
 import { StaffListPageComponent } from './pages/home-page/staff-list-page/staff-list-page.component';
+import { MapComponent } from './pages/home-page/map/map.component';
+
 
 @NgModule({
   declarations: [
@@ -68,7 +70,9 @@ import { StaffListPageComponent } from './pages/home-page/staff-list-page/staff-
     Theme2Component,
     RoomComponent,
     MemberListPageComponent,
-    StaffListPageComponent
+    StaffListPageComponent,
+    MapComponent,
+
   ],
   imports: [
     // NzCardModule,
@@ -153,6 +157,10 @@ import { StaffListPageComponent } from './pages/home-page/staff-list-page/staff-
           {
             path: "home-page/staff-list",
             component: StaffListPageComponent
+          },
+          {
+            path: "home-page/map",
+            component: MapComponent
           }
 
         ]

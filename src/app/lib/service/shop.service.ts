@@ -4,18 +4,14 @@ import { Headers } from "@angular/http";
 
 @Injectable()
 export class ShopService {
-
-
-
   set shop_id(_id: string) {
-    localStorage.setItem('shop_id', _id + '')
+    localStorage.setItem("shop_id", _id + "");
   }
   get shop_id() {
-    return localStorage.getItem('shop_id')
+    return localStorage.getItem("shop_id");
   }
 
-
-  constructor(public http: MyHttpService) { }
+  constructor(public http: MyHttpService) {}
   shopApi = {
     /**
      * 商户登录
@@ -38,6 +34,12 @@ export class ShopService {
      */
     createEmployee: "/api/shop/create-employee",
     /**
+     * post
+     * query: ?employee_id&shop_id
+     *body:IEmployeee
+     */
+    updateEmployee: "/api/shop/employee/update",
+    /**
      * get  注册短信验证码
      * ? phone
      */
@@ -49,10 +51,16 @@ export class ShopService {
      *      * 区域
      * 返回 IRegion[]
      */
-    getCityJSON: "/city.json"
+    getCityJSON: "/city.json",
+    /**
+     * post  提交店铺经纬度
+     * ? shop_id
+     * body:{lat_lng}
+     */
+    updateShopLocation: "/api/shop/location/update"
   };
   signin(username: string, password: string) {
-    return this.http.Post(this.shopApi.signin, { username, password })
+    return this.http.Post(this.shopApi.signin, { username, password });
   }
   signup(NewShop: IShop, authcode: string) {
     NewShop["authcode"] = authcode;
@@ -68,9 +76,28 @@ export class ShopService {
     return this.http.Get(this.shopApi.getCityJSON);
   }
   createEmployee(newEmployee: IEmployee) {
-    return this.http.Post(this.shopApi.createEmployee, newEmployee, { params: { shop_id: this.shop_id } })
+    return this.http.Post(this.shopApi.createEmployee, newEmployee, {
+      params: { shop_id: this.shop_id }
+    });
   }
-  getEmployePage(page: number = 0, pageSize = 10) {
-    return this.http.Get(this.shopApi.employeePage, { params: { page, pageSize, shop_id: this.shop_id } });
+  getEmployePage(page: number = 0, pageSize = 5) {
+    return this.http.Get(this.shopApi.employeePage, {
+      params: { page, pageSize, shop_id: this.shop_id }
+    });
+  }
+  // 删除员工
+  deletestaff() {}
+  // 更新员工个人信息
+  updateStaff(newEmployee: IEmployee) {
+    return this.http.Post(this.shopApi.updateEmployee, newEmployee, {
+      params: { shop_id: this.shop_id, employee_id: newEmployee.employee_id }
+    });
+  }
+  getLng(lat_lng: string) {
+    return this.http.Post(this.shopApi.updateShopLocation, {lat_lng}, {
+      params: {
+        shop_id: this.shop_id
+      }
+    });
   }
 }

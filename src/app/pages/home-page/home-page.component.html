@@ -16,7 +16,7 @@
                 </span>
                 <ul>
                     <li *ngFor="let child of group.children" nz-menu-item [routerLink]="child.link" routerLinkActive="ant-menu-item-selected">
-                        <i class="icon-guanliyuan iconfont"></i> {{child.label}}</li>
+                        <i [class]="'anticon anticon-'+child.icon_font"></i> {{child.label}}</li>
                 </ul>
             </li>
         </ul>
@@ -189,7 +189,7 @@
                 <ul>
                     <li nz-menu-item routerLinkActive="ant-menu-item-selected">
                         <i class="icon-guanliyuan iconfont"></i> 权限分配</li>
-                    <li nz-menu-item routerLinkActive="ant-menu-item-selected">
+                    <li nz-menu-item routerLinkActive="ant-menu-item-selected" >
                         <i class="icon-guanliyuan iconfont"></i> 我的坐标</li>
                     <li nz-menu-item routerLinkActive="ant-menu-item-selected">
                         <i class="icon-guanliyuan iconfont"></i> 店铺照片上传</li>
