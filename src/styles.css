@@ -119,3 +119,11 @@ table td img {
 ::-webkit-scrollbar {
   width: 0px;
 }
+
+.storage .ant-progress-text.ng-star-inserted {
+  font-size: .9rem;
+}
+
+.inline-block {
+  display: inline-block !important;
+}

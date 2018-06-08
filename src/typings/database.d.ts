@@ -107,10 +107,8 @@ interface IShop {
   created_at?: Date;
 }
 
-
-
 interface IEmployee {
-  role_id:number;
+  role_id: number;
   shop_id?: number;
   employee_id?: number;
   sex: number;
@@ -132,7 +130,7 @@ interface IEmployee {
    */
   role_code;
   /**
-* 固定电话     */
+   * 固定电话     */
   telphone;
   /**
    * 手机号码
@@ -147,8 +145,8 @@ interface IEmployee {
   password_hash?;
   email: string;
   /**
- * 推荐人id
- */
+   * 推荐人id
+   */
   referrer?: string;
   /**
    * 员工编号
@@ -234,8 +232,8 @@ interface IEmployee {
 }
 
 /**
-* 省份
-*/
+ * 省份
+ */
 interface IRegion {
   name: string;
   /**
@@ -249,5 +247,72 @@ interface ICity {
   area: string[];
 }
 
+interface IRoom {
+  shop_id?: number;
+  imp_date?: Date;
+  room_id?: number;
+  /**
+   *
+   * 房间类型（m_room_type）
+   *
+   * 1 足疗房
+   * 2 保健房
+   * 3 泰式房子
+   * 4 养生房
+   * 5 棋牌房
+   * 6 茶艺坊
+   * 7 洗浴房
+   */
 
+  room_type;
+  area_code?;
+  floor_num: number;
+  room_name: string;
+  bed_num: number;
+  /**
+   * 00停用 ,
+   * 01就绪，
+   * 02 占用，
+   * 03 使用，
+   * 04 待清洁，
+   * 05清洁中
+   */
+  status: "00" | "01" | "02" | "03" | "04" | "05";
+  /**
+   * 包厢费用
+   */
+  box_fee: number;
+  /**
+   * 冲抵消费
+   * 0不可以 1可以
+   */
+  offset_flg;
+  /**
+   * 是否计时收费
+   */
+  pay_by_hour_flg: boolean;
+  /**
+   * 计时收费的价格
+   */
+  price_of_timing;
+  owner?;
+  union_id?;
+  reserve_str1?;
+  reserve_str2?;
+  reserve_str3?;
+}
 
+interface IHandcard {
+  shop_id?: number;
+  imp_date?: Date;
+  hand_card_id?: number;
+  hand_card_name?: string;
+  area_code?;
+  male: "1" | "2";
+  /**
+   * 状态（0 停用 1 可用 2 占用）
+   */
+  status: 0 | 1 | 2;
+  union_id?: number;
+  room_id?;
+}

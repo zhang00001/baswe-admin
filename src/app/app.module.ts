@@ -40,12 +40,14 @@ import { HirePageComponent } from "./pages/home-page/hire-page/hire-page.compone
 import { SignupPageComponent } from "./pages/signup-page/signup-page.component";
 import { Theme1Component } from "./com/theme1/theme1.component";
 import { Theme2Component } from "./com/theme2/theme2.component";
-import { RoomComponent } from './pages/home-page/room/room.component';
-import { rootRenderNodes } from "@angular/core/src/view";
-import { MemberListPageComponent } from './pages/home-page/member-list-page/member-list-page.component';
-import { StaffListPageComponent } from './pages/home-page/staff-list-page/staff-list-page.component';
-import { MapComponent } from './pages/home-page/map/map.component';
 
+import { MemberListPageComponent } from "./pages/home-page/member-list-page/member-list-page.component";
+import { StaffListPageComponent } from "./pages/home-page/staff-list-page/staff-list-page.component";
+import { MapComponent } from "./pages/home-page/map/map.component";
+import { StorageComponent } from "./com/storage/storage.component";
+import { RoomManageComponent } from "./pages/home-page/room-manage/room-manage.component";
+import { HandcardManageComponent } from "./pages/home-page/handcard-manage/handcard-manage.component";
+import {ProductComponent} from './pages/home-page/product/product.component';
 
 @NgModule({
   declarations: [
@@ -68,11 +70,13 @@ import { MapComponent } from './pages/home-page/map/map.component';
     SignupPageComponent,
     Theme1Component,
     Theme2Component,
-    RoomComponent,
+
     MemberListPageComponent,
     StaffListPageComponent,
     MapComponent,
-
+    StorageComponent,
+    RoomManageComponent,
+    HandcardManageComponent
   ],
   imports: [
     // NzCardModule,
@@ -146,9 +150,10 @@ import { MapComponent } from './pages/home-page/map/map.component';
           {
             path: "activity/hire",
             component: HirePageComponent
-          }, {
-            path: "home-page/room", //房间
-            component: RoomComponent
+          },
+          {
+            path: "system/room-manage", //房间
+            component: RoomManageComponent
           },
           {
             path: "home-page/member-list", //会员列表
@@ -159,10 +164,17 @@ import { MapComponent } from './pages/home-page/map/map.component';
             component: StaffListPageComponent
           },
           {
+            path: "system/handcard-manage",
+            component: HandcardManageComponent
+          },
+          {
             path: "home-page/map",
             component: MapComponent
+          },
+          {
+            path:'home-page/product',
+            component:ProductComponent
           }
-
         ]
       }
     ])
@@ -171,4 +183,4 @@ import { MapComponent } from './pages/home-page/map/map.component';
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

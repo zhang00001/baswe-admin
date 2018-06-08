@@ -172,7 +172,7 @@ export class AdminService {
           id: modu.module_id,
           link: modu.link,
           checked: false,
-          icon_font:modu.icon_font
+          icon_font: modu.icon_font
         });
       } else {
         groups.push({
@@ -180,7 +180,7 @@ export class AdminService {
           value: modu.module_id,
           label: modu.name,
           link: modu.link,
-          icon_font:modu.icon_font,
+          icon_font: modu.icon_font,
           checkdAll: false,
           children: []
         });
@@ -260,11 +260,11 @@ export class AdminService {
     return this.api.Post(this.adminApi.systemModule.creatModule, module);
   }
   createRole(newRole: IRole) {
-    newRole.shop_id  = this.shop_id as any;
-  return  this.api.Post(this.adminApi.systemModule.creatRole, newRole);
+    newRole.shop_id = this.shop_id as any;
+    return this.api.Post(this.adminApi.systemModule.creatRole, newRole);
   }
   createUser(user: IUser) {
-   return  this.api.Post(this.adminApi.systemModule.creatUser, user);
+    return this.api.Post(this.adminApi.systemModule.creatUser, user);
   }
   deleteModules(module_ids: number[]) {
     return this.api.Post(this.adminApi.systemModule.deleteModule, {
@@ -291,7 +291,7 @@ export class AdminService {
   }
 
   logout() {
-    localStorage.clear();
+    localStorage.removeItem("shop_id");
     return this.router.navigateByUrl("/admin/signin");
   }
   goAdminHome() {

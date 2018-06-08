@@ -1,0 +1,139 @@
+<div class="container">
+  <nz-breadcrumb style="margin:12px 0;">
+    <nz-breadcrumb-item>
+      <a> 系统管理</a>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>
+      <a routerLink="/admin/system/room-manage"> 手牌管理</a>
+    </nz-breadcrumb-item>
+  </nz-breadcrumb>
+</div>
+
+
+<div class="container ">
+  <div class="bg-white">
+    <div style="text-align: left;padding-right:40px;">
+
+      <nz-card nzTitle="手牌管理" style="margin-bottom: 40px;">
+        <div nz-card-grid class="handcard" d [ngStyle]="gridStyle" *ngFor="let handcard of handcards;let i =index">
+          <i class="anticon anticon-man sex"></i>
+          <div class="num">{{handcard.hand_card_name}}</div>
+        </div>
+
+        <div nz-card-grid [ngStyle]="gridStyle" style="width:50px;height:50px;display: flex;align-items: center;justify-content: center;"
+          (click)="state=ViewState.Create">
+          <i class="anticon anticon-plus" style="font-size: 2rem"></i>
+        </div>
+      </nz-card>
+    </div>
+  </div>
+</div>
+<div *ngIf="ViewState.Create==state">
+  <div class="forms">
+    <nz-form-item class="inline-block">
+      <nz-form-label [nzSpan]="6" nzFor="email">手牌号</nz-form-label>
+      <nz-form-control [nzSpan]="14">
+        <input nz-input [(ngModel)]="newHandcard.hand_card_name">
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzFor="email">状态</nz-form-label>
+      <nz-form-control [nzSpan]="14">
+        <nz-select style="width: 120px;" [(ngModel)]="newHandcard.status" nzAllowClear nzPlaceHolder="状态">
+          <nz-option [nzValue]="option.value" [nzLabel]="option.label" *ngFor="let option of statusOption"></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+    <nz-form-item>
+      <nz-form-label [nzSpan]="6" nzFor="email">房间状态</nz-form-label>
+      <nz-form-control [nzSpan]="14">
+        <nz-radio-group [(ngModel)]="newHandcard.male">
+          <label nz-radio [nzValue]="'1'">男</label>
+          <label nz-radio [nzValue]="'2'">女</label>
+        </nz-radio-group>
+      </nz-form-control>
+    </nz-form-item>
+
+
+  </div>
+  <div class="text-center">
+    <button nzType="primary" nz-button (click)="addHandcard()">添加</button>
+  </div>
+</div>
+<div *ngIf="ViewState.Edit==state">
+  <ng-container *ngIf="selectedRoom">
+    <div class="forms">
+      <nz-form-item class="inline-block">
+        <nz-form-label [nzSpan]="6" nzFor="email">名称/房号</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+          <input nz-input [(ngModel)]="selectedRoom.room_name">
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzFor="email">房间类型</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+          <nz-select style="width: 120px;" [(ngModel)]="selectedRoom.room_type" nzAllowClear nzPlaceHolder="房间类型">
+            <nz-option [nzValue]="roomOption.room_type" [nzLabel]="roomOption.room_type_label" *ngFor="let roomOption of roomTypeOptions"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzFor="email">房间状态</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+          <nz-select style="width: 120px;" [(ngModel)]="selectedRoom.status" nzAllowClear nzPlaceHolder="房间状态">
+            <nz-option [nzValue]="statusOption.status" [nzLabel]="statusOption.status_label" *ngFor="let statusOption of roomStatusOptions"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzFor="email">床位数量</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+          <input nz-input type="number" [(ngModel)]="selectedRoom.bed_num">
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzFor="email">包厢费用</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+          <input nz-input type="number" [(ngModel)]="selectedRoom.box_fee">
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzFor="email">所在楼层</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+          <input nz-input type="number" [(ngModel)]="selectedRoom.floor_num">
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzFor="email">冲抵消费</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+          <nz-switch [(ngModel)]="selectedRoom.offset_flg"></nz-switch>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzFor="email">计时收费</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+          <nz-switch [(ngModel)]="selectedRoom.pay_by_hour_flg"></nz-switch>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzFor="email">计时价格</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+          <input nz-input type="number" [(ngModel)]="selectedRoom.price_of_timing">
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="6" nzFor="email">负责人</nz-form-label>
+        <nz-form-control [nzSpan]="14">
+          <input nz-input [(ngModel)]="selectedRoom.owner">
+        </nz-form-control>
+      </nz-form-item>
+      <div style="text-align:center">
+        <button nz-button nzType="default" (click)="getRooms();state=ViewState.List">返回</button>
+        <button nz-button nzType="danger" (click)="delRoom()"> 删除</button>
+        <button nz-button nzType="primary" (click)="editRoom()"> 更新</button>
+      </div>
+    </div>
+  </ng-container>
+</div>
